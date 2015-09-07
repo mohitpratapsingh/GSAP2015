@@ -8,12 +8,18 @@
 /* body {background-color:lightgray}
 h2   {color:blue} */
 p    {color:red}
+h4   {color:green}
 </style>
 <body>
 
 <center>
 
 <h2>user login page</h2>
+ <c:set var="regMessage" value="${regResponse}"/>
+	<c:if test="${(regMessage!=null)}">
+	<h4 color="red"> <c:out value="${regMessage}"/></h4>
+	</c:if>
+
 <form:form method="POST" action="userLoginSubmit"  commandName="loginForm">
 
    <table>
@@ -42,9 +48,10 @@ p    {color:red}
     </tr>
 </table>  
 </form:form>
+
 <c:set var="message" value="${dataMap.get(\"message\")}"/>
 <c:if test="${(message!=null)}">
-<p color="red"> <c:out value="${message}"/></p>
+<p color="red"> <c:out value="${message}"/></p> 
 </c:if>
 </center>
 </body>

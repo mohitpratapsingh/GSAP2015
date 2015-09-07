@@ -1,0 +1,71 @@
+package com.emc.shoppingcart.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.emc.shoppingcart.dao.ProductDao;
+import com.emc.shoppingcart.model.Product;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Autowired
+	ProductDao productDao;
+
+	@Transactional
+	public String addProduct(Product product) {
+
+		try {
+			productDao.addProduct(product);
+			// productDao.addproductToFile(product);
+			return "SUCCESSFULL_UPDATE";
+		} catch (Exception e) {
+			e.printStackTrace();
+			//System.out.println(e.getMessage());
+			return "UPDATE_FAILED";
+		}
+	
+	}
+
+	@Override
+	public String removeProduct(long productId) {
+
+		return productDao.deleteProduct(productId);
+		
+	}
+
+	@Override
+	public List<Product> getProducts() {
+
+		return productDao.getProducts();
+	}
+
+	@Override
+	public String updateProduct(Product product) {
+		
+		return productDao.updateProduct(product);
+	}
+
+
+
+	@Override
+	public String removeMultipleProducts(List<Integer> productidList) {
+		
+		 List<Integer> notDeleted = null;
+		 String response="Could not delete products :";
+		for(Integer productId: productidList){
+			
+			String response=productDao.deleteProduct(productId);
+			if(response.equals("COULD_NOT_DELETE_PRODUCT"))
+				notDeleted.add(productId);
+				response=response+" "+productId;
+		}
+		
+		return null;
+	}
+
+}

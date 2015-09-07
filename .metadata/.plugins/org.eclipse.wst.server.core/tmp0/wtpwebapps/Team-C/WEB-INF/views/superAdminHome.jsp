@@ -97,9 +97,10 @@ Welcome ${dataMap.get("user").getUserFname()}
  <tbody> 
  <c:forEach items="${dataMap.get(\"adminList\")}" var="admin">
     <tr>
+    <td><input type="checkbox" id="cbox" value="${admin.getEmailId()}"  onclick="onCheckbox2 (this)" /></td>
       <td>${admin.getUserFname()} ${admin.getUserLname()}</td>
       <td>${admin.getEmailId()}</td>
-       <td><input type="checkbox" id="cbox" value="${admin.getEmailId()}"  /></td>
+       
     </tr>
   </c:forEach> 
   </tbody>
@@ -121,13 +122,13 @@ Welcome ${dataMap.get("user").getUserFname()}
 var checker = document.getElementById('cbox');
 var sendbtn = document.getElementById('delAdmin');
 var username;
-checker.onchange = function() {
-  alert("checked");
+ function onCheckbox2() {
   sendbtn.disabled = false;
   username=checker.value;
 };
 
 function delAdmin() {
+	
 	window.location.href = "deleteAdmin?userName=" + username;
 }
 

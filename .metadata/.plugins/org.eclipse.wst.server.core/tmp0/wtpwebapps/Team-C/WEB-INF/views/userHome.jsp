@@ -26,6 +26,10 @@ Welcome ${dataMap.get("user").getUserFname()}
       <td>${product.price}</td>
       <td>${product.category}</td>
       <td>${product.imageName}</td>
+      <td>
+<input type="button" id="" value="Add to cart" disabled />
+
+	</td>
     </tr>
   </c:forEach> 
   </tbody>

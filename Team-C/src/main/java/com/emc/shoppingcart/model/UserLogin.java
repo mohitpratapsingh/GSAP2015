@@ -7,14 +7,17 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserLogin {
 
+	@NotEmpty @Email
 	private String emailId;
+	
+	@Size(min=4,max=12)
 	private String passwrd;
 
-	@NotEmpty @Email
+	
 	public String getEmailId() {
 		return emailId;
 	}
-	@Size(min=4,max=12)
+	
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}

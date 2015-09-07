@@ -8,9 +8,6 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-admin
-</h1>
 <h2>
 Welcome ${dataMap.get("user").getUserFname()}
 </h2>
@@ -70,8 +67,6 @@ var test=[];
             		}
             		if(index > -1)
             		test.splice(index,1);
-            	
-            	
             }
        	}
         
@@ -81,9 +76,5 @@ var test=[];
 
         }
     </script>
-
-
-
-
 </body>
 </html>

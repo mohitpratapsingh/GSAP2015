@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String RemoveProduct(long productId) {
+	public String removeProduct(long productId) {
 
 		return productDao.deleteProduct(productId);
 		
@@ -48,6 +48,32 @@ public class ProductServiceImpl implements ProductService {
 	public String updateProduct(Product product) {
 		
 		return productDao.updateProduct(product);
+	}
+
+
+
+	@Override
+	public String removeMultipleProducts(List<Integer> productidList) {
+		
+		 List<Integer> notDeleted = null;
+		 String failedToDelete="Could not delete products :";
+		for(Integer productId: productidList){
+			
+			String response=productDao.deleteProduct(productId);
+			
+			if(response.equals("COULD_NOT_DELETE_PRODUCT")){
+				notDeleted.add(productId);
+				failedToDelete=failedToDelete+" "+productId;
+			}
+
+		}
+		if(notDeleted.size()==0){
+			return "Successfully deleted the products";
+		}else{
+			return failedToDelete;
+		}
+		
+		
 	}
 
 }

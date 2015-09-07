@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("addProductForm") Product product, Model model, HttpSession session,
+	public String addProduct(@ModelAttribute("addProductForm") @Valid Product product, Model model, HttpSession session,
 			BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
@@ -78,28 +79,15 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/deleteProduct", method = RequestMethod.GET)
-	public String deleteProduct(@RequestParam("prodIductList") List<Integer> prodIductList, Model model,
+	public String deleteProduct(@RequestParam("prodIductList") List<Integer> productIdList, Model model,
 			HttpSession session) {
 
-		String response = null;
-
-		for (int pid : prodIductList) {
-			response = productService.RemoveProduct(pid);
-		}
-
+		String response = productService.removeMultipleProducts(productIdList);
 		Map<String, Object> dataMap = (Map<String, Object>) session.getAttribute("dataMap");
 		List<User> userList = userService.getUsersByRoleId(ConstantsClass.USER_ID);
 		dataMap.put("userList", userList);
-
-		if (response.equals("PRODUCT_DELETED_SUCCESSFULLY")) {
-			List<Product> productList = productService.getProducts();
-			dataMap.put("productList", productList);
-			dataMap.put("prod_del_message", response);
-		} else {
-
-			dataMap.put("prod_del_message", response);
-		}
-
+		
+		model.addAttribute("delMessage",response);
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
 
