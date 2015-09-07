@@ -82,26 +82,7 @@ var test=[];
         }
     </script>
 
-<!-- 
 
-// Alternate method using DOM for checkboxes
-
-<script type="text/javascript">
- 
-        var tab = document.getElementById("productTable");
-        if (tab != null) {
-            for (var i = 0; i < tab.rows.length; i++) {
-                for (var j = 0; j < tab.rows[i].cells.length; j++)
-                    tab.rows[i].cells[0].onclick = function () { getval(this); };
-            }
-        }
- 
-        function getval(cel) {
-        	//alert(cel.innerHTML);
-        	//if(cel.checked)
-        		alert(cel.checked);
-        }
-</script> -->
 
 
 </body>
