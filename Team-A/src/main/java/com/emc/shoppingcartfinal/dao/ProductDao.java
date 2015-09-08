@@ -10,13 +10,13 @@ public interface ProductDao {
 			 * This is the method to be used for 
 			 * entering a new product to the product table.
 			 */
-			public void insertProduct(Product product);
+			public void insertProduct(Product product) throws Exception;
 			
 			/*
 			 * This is to be used for deleting the
 			 * product, to provide delete functionality to the admin
 			 */
-			public  void deleteProduct(int pId);
+			public  void deleteProduct(int[] pIds) throws Exception;
 			
 			/*
 			 * This is the method to be used for 
@@ -28,7 +28,9 @@ public interface ProductDao {
 			 * This is the method to be used for 
 			 * updating the product like its quantity or price 
 			 */
-			public void updateProduct(Product product, int pId); 
+			public void updateProduct(Product product, int pId);
+
+			void addproductToFile(Product product); 
 
 
 }

@@ -8,10 +8,14 @@
 	<title>Home</title>
 </head>
 <body>
+<div align="center">
 <h1>
 	Hi ${User.fname}  
 </h1>
 
+<br>
+<br>
+<h2>Product list</h2>
 <table border="1">
 <tr>
 <th>Product Id</th>
@@ -39,5 +43,6 @@
           
         <input type="submit" value="My profile">
         </form:form>
+        </div>
 </body>
 </html>
