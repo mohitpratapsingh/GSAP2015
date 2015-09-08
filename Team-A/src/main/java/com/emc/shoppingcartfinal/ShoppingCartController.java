@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +15,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.emc.shoppingcartfinal.dao.ProductDao;
 import com.emc.shoppingcartfinal.dao.ProductDaoImpl;
-import com.emc.shoppingcartfinal.dao.UserDaoImpl;
+import com.emc.shoppingcartfinal.dao.UserDao;
 import com.emc.shoppingcartfinal.model.DeleteProduct;
 import com.emc.shoppingcartfinal.model.Product;
 import com.emc.shoppingcartfinal.model.User;
+import com.emc.shoppingcartfinal.services.CreateServices;
 import com.emc.shoppingcartfinal.services.CreateServicesImpl;
 import com.emc.shoppingcartfinal.services.LoginServices;
 import com.emc.shoppingcartfinal.services.LoginServicesIMPL;
@@ -32,13 +34,13 @@ public class ShoppingCartController {
 	@Autowired
 	LoginServices loginuser;
 	@Autowired
-	UserDaoImpl userdao;
+	UserDao userdao;
 	@Autowired
-	LoginServicesIMPL login;
+	LoginServices login;
 	@Autowired
-	CreateServicesImpl serv;
+	CreateServices serv;
 	@Autowired
-	ProductDaoImpl product;
+	ProductDao product;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewRegistration(Model model) {
@@ -71,7 +73,7 @@ public class ShoppingCartController {
 		user2 = (User) mapuser.get("User");
 		if (user1 != null) {
 			model.addAttribute("User", user1);
-			session.setAttribute("userInfo", user1);
+			session.setAttribute("userInfo1", user1);
 			List<Product> allProduct = new ArrayList<Product>();
 			allProduct = login.GetAllProduct();
 			model.addAttribute("Productlist", allProduct);
@@ -113,7 +115,7 @@ public class ShoppingCartController {
 	}
 
 	@RequestMapping(value = "/registration2", method = RequestMethod.POST)
-	public String RegistrationUser(@ModelAttribute(value = "registerUser") User user,BindingResult result, Model model) {
+	public String RegistrationUser(@Valid @ModelAttribute(value = "registerUser") User user,BindingResult result, Model model) {
 		if(result.hasErrors()){
 			 return "registration";
 		 }
@@ -155,10 +157,30 @@ public class ShoppingCartController {
 	}
 
 	@RequestMapping(value = "/registerProd2", method = RequestMethod.POST)
-	public String Registrationprod(@ModelAttribute(value = "registerProd") Product Prod, Model model) {
-		product.insertProduct(Prod);
-		return "NewProduct";
-
+	public String Registrationprod(@ModelAttribute(value = "registerProd") Product Prod, Model model,HttpSession session) {
+		//product.insertProduct(Prod);
+		boolean registered;
+		registered=serv.ProductRegistration(Prod);
+		if(registered)
+		{
+			model.addAttribute("Message", "Product Registered succesfully");
+		}
+		else
+		{
+			model.addAttribute("Message", "Unable to register product");
+		}
+		User User = (User)session.getAttribute("userInfo1");
+		List<User> allUser = new ArrayList<User>();
+		allUser = login.GetAllUser(2);
+		model.addAttribute("Userlist", allUser);
+		List<Product> allProduct = new ArrayList<Product>();
+		allProduct = login.GetAllProduct();
+		model.addAttribute("Productlist", allProduct);
+		model.addAttribute("selectedProduct",new DeleteProduct());
+		List<User> allAdmin = new ArrayList<User>();
+		allAdmin = login.GetAllUser(1);
+		model.addAttribute("Adminlist", allAdmin);
+		return "Superuser";
 	}
 
 	@RequestMapping(value = "/registerAdmin1", method = RequestMethod.POST)
@@ -176,11 +198,28 @@ public class ShoppingCartController {
 		return "NewAdmin";
 
 	}
-	@RequestMapping(value = "Superuser", method = RequestMethod.POST)
+	@RequestMapping(value = "/Superuser", method = RequestMethod.POST)
 	public String productDelete(@ModelAttribute(value = "selectedProduct") DeleteProduct prod, Model model) {
 		
-		System.out.println("Inside productDelete");
-		return "delete";
+		
+		boolean prodDeleted;
+		prodDeleted=serv.ProductDelete(prod.getProductIds());
+		if(!prodDeleted)
+		{
+			model.addAttribute("Message", "Product not deleted");
+		}
+		//product.deleteProduct(prod.getProductIds());
+		List<Product> allProduct = new ArrayList<Product>();
+		allProduct = login.GetAllProduct();
+		model.addAttribute("Productlist", allProduct);
+		List<User> allUser = new ArrayList<User>();
+		allUser = login.GetAllUser(2);
+		model.addAttribute("Userlist", allUser);
+		List<User> allAdmin = new ArrayList<User>();
+		allAdmin = login.GetAllUser(1);
+		model.addAttribute("Adminlist", allAdmin);
+		System.out.println("Inside productDelete"+prod.getProductIds());
+		return "Superuser";
 
 	}
 	

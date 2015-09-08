@@ -2,14 +2,16 @@ package com.emc.shoppingcartfinal.model;
 
 public class DeleteProduct {
 
-	String[] productId;
+	private int[] productIds;
 
-	public String[] getProductId() {
-		return productId;
+	public int[] getProductIds() {
+		return productIds;
 	}
 
-	public void setProductId(String[] productId) {
-		this.productId = productId;
+	public void setProductIds(int[] productIds) {
+		this.productIds = productIds;
 	}
+
+	
 	
 }

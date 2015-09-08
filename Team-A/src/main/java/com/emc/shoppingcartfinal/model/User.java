@@ -20,7 +20,7 @@ public class User {
 	private String state;
 	@Size(min =1,max=20,message="Country can't be empty")
 	private String country;
-	@Size(min =1,max=10,message="Pincode can't be empty")
+	//@Size(min =1,max=10,message="Pincode can't be empty")
 	private int pincode;
 	@Size(min =4,max=20,message="Password needs to be atlest 5 alphanumerics")
 	private String password;
