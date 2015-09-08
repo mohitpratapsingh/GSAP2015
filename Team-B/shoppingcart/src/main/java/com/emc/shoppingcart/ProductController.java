@@ -175,14 +175,21 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			String[] prodval=request.getParameterValues("prodList");
 			
 			for(Products prod:allProduct){
-				for(String prodVal:prodval)
-					if(prod.getProdId()==Integer.parseInt(prodVal))
+				for(String prodVal:prodval){
+					System.out.println("ProdVal"+prodVal);
+					if(prod.getProdId()==Integer.parseInt(prodVal)){
+						System.out.println("Inside this :)");
 						prodDeleteInfo[count++] = productService.deleteProduct(prod);
+						break;
+						}
+					}
 			}
+			/*
 			for(String msg:prodDeleteInfo){
-				if(msg.equals(null)) 	
+				if(msg==null)
 					model.addAttribute("error",errMessage);
 			}
+			*/
 			System.out.println("Email:"+request.getParameter("session"));
 			String emailId=request.getParameter("session");
 			User user1=listuser.getSpecificUserAccount(emailId);
@@ -205,6 +212,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			return "AdminLanding";
 		}
 		catch(Exception e){
+			e.printStackTrace();
 			String error="Error in deleting PRODUCT";
 			model.addAttribute("error",error);	
 			return "AdminLanding";
