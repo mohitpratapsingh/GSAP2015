@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import com.emc.shopping.model.User;
 import com.emc.shoppingcart.repository.UserSignupDaoImpl;
 
-@Component
-//@Service(value = "listuser")
+//@Component
+@Service(value = "listuser")
 public class UserService {
 
 	@Autowired

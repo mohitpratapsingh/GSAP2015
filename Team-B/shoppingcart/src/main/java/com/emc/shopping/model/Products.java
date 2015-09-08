@@ -12,6 +12,15 @@ public class Products implements Serializable{
 	private float price;
 	private int quantity;
 	
+	public Products() {
+		
+	}
+	
+	public Products(String prodName,float price,int quantity) {
+		this.prodName = prodName;
+		this.price = price;
+		this.quantity = quantity;
+	}
 	public long getProdId() {
 		return prodId;
 	}

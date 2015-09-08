@@ -145,7 +145,7 @@ public class HomeController {
 							return "UserLanding";
 						}
 						else{
-							model.addAttribute("User Doesn't E","error");
+							model.addAttribute("User Doesn't Exist","error");
 							return "userLogin";	
 						}
 			}
@@ -227,13 +227,7 @@ public class HomeController {
     }
  /*
 	
-	*//**
-	 * 
-	 * @author tripaa5
-	 * @param p
-	 * @param model
-	 * @return
-	 *//*
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model) {
 		UserLogin user=new UserLogin();
