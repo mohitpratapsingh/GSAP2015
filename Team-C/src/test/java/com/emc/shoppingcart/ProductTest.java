@@ -64,4 +64,14 @@ public class ProductTest {
 	    System.out.println(response);
 	    assertNotNull(response);
 	}*/
+	
+	@Test
+	public void testTransaction(){
+		Product product=new Product("Micromax bolt 2", 10000f, "Electronics", "canvas");
+	    String response=productService.transactionExProduct(product);
+	    System.out.println(response);
+	    assertNotNull(response);
+	}
+	
+	
 }

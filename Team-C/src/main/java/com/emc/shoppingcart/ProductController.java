@@ -46,7 +46,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("addProductForm") @Valid Product product, Model model, HttpSession session,
+	public String addProduct(@ModelAttribute("addProductForm") /*@Valid*/ Product product, Model model, HttpSession session,
 			BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {

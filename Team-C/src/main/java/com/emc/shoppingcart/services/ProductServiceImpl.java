@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	ProductDao productDao;
 
-	@Transactional
+	//@Transactional
 	public String addProduct(Product product) {
 
 		try {
@@ -74,6 +74,21 @@ public class ProductServiceImpl implements ProductService {
 			return failedToDelete;
 		}
 		
+		
+	}
+
+	@Override
+	@Transactional
+	public String transactionExProduct(Product product) {
+		try {
+			productDao.addProduct(product);
+			productDao.addproductToFile(product);
+			return "SUCCESSFULL_UPDATE";
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return "UPDATE_FAILED";
+		}
 		
 	}
 

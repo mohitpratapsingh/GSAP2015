@@ -19,6 +19,8 @@ h4   {color:green}
 	<c:if test="${(regMessage!=null)}">
 	<h4 color="red"> <c:out value="${regMessage}"/></h4>
 	</c:if>
+	
+	<p color="red">${login}</p>
 
 <form:form method="POST" action="userLoginSubmit"  commandName="loginForm">
 

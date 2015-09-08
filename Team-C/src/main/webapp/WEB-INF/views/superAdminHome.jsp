@@ -12,7 +12,7 @@
 Welcome ${dataMap.get("user").getUserFname()}
 </h2>
 
-<h3> ${prodMsg}</h3>
+<h3 color="blue"> ${prodMsg}</h3>
 <h3><p id="notSelected"></h3>
 
 <p1>

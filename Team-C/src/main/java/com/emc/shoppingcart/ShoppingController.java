@@ -55,7 +55,7 @@ public class ShoppingController {
 	}
 
 	@RequestMapping(value = "/userRegistration", method = RequestMethod.POST)
-	public String signupUser(@ModelAttribute("registerForm") @Valid User user, Model model, BindingResult bindingResult,
+	public String signupUser(@ModelAttribute("registerForm") /*@Valid*/ User user, Model model, BindingResult bindingResult,
 			HttpSession session) {
 		if (bindingResult.hasErrors()) {
 			return "userRegistrationForm";
@@ -98,9 +98,9 @@ public class ShoppingController {
 		if (response.equals("ADMIN_ADDED_SUCCESSFULLY")) {
 			List<User> adminList = userService.getUsersByRoleId(ConstantsClass.ADMIN_ID);
 			dataMap.put("adminList", adminList);
-			dataMap.put("admin_add_message", response);
+			model.addAttribute("prodMsg",response);
 		} else
-			dataMap.put("admin_add_message", response);
+			model.addAttribute("prodMsg",response);
 
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
@@ -128,10 +128,12 @@ public class ShoppingController {
 	}
 
 	@RequestMapping(value = "/userLoginSubmit", method = RequestMethod.POST)
-	public String loginModelAttribute(@ModelAttribute("loginForm") @Valid UserLogin user, Model model, HttpSession session,
+	public String loginModelAttribute(@ModelAttribute("loginForm") /*@Valid*/ UserLogin user, Model model, HttpSession session,
 			BindingResult bindingResult) {
-
-		if (bindingResult.hasErrors()) {
+	/*	bindingResult.hasErrors()*/
+		System.out.println("id"+user.getEmailId());
+		if (user.getEmailId().equals("")||user.getPasswrd().equals("")) {
+			model.addAttribute("login", "Please enter both Email Id and Password");
 			return "userLoginForm";
 		} else {
 			Map<String, Object> dataMap = userService.userLogin(user.getEmailId(), user.getPasswrd());

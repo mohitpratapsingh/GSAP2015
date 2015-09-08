@@ -12,6 +12,7 @@
 <h2>
 Welcome ${dataMap.get("user").getUserFname()}
 </h2>
+<h3 color="blue"> ${prodMsg}</h3>
 
 <table border="1"  id="productTable" >
 <thead>

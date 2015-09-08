@@ -5,12 +5,13 @@
 	<title>Welcome</title>
 </head>
 <body>
+<center>
 <h4>
 Welcome ${dataMap.get("user").getUserFname()}
 </h4>
 <table border="1">
 <thead>
- <th>Product List</th>
+ <th colspan=4>Product List</th>
  <tr>
     <th>Product Name</th>
     <th>Product Price</th>
@@ -34,6 +35,7 @@ Welcome ${dataMap.get("user").getUserFname()}
   </c:forEach> 
   </tbody>
 </table> 
+</center>
 </body>
 </html>
 
