@@ -34,6 +34,7 @@
       <td>${product.depID}</td>
       <td>${product.price}</td>
       <td>${product.prodDes}</td>
+      <td><button type="button"  disabled/>ADD TO CART</td>
     </tr>
   </c:forEach> 
   </tbody> 
