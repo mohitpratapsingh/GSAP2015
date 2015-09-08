@@ -1,3 +1,4 @@
+
 package com.emc.shoppingcart.dao;
 
 import java.util.List;
@@ -46,6 +47,7 @@ public class UserDaoImpl implements UserDao {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 			//System.out.println(e.getMessage());
 			return "COULD_NOT_ADD_USER";
 		}

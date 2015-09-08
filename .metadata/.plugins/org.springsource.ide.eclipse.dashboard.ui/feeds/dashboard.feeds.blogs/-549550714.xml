@@ -5,7 +5,50 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2015-09-04T08:01:00Z</updated>
+  <updated>2015-09-08T15:51:00Z</updated>
+  <entry>
+    <title>Spring REST Docs 1.0.0.RC1</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/08/spring-rest-docs-1-0-0-rc1" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2015-09-08:2231</id>
+    <updated>2015-09-08T15:51:00Z</updated>
+    <content type="html">&lt;p&gt;I&amp;rsquo;m delighted to announce that &lt;a href="https://github.com/spring-projects/spring-restdocs"&gt;Spring REST Docs&lt;/a&gt; 1.0.0.RC1 has been released and is available from our &lt;a href="https://repo.spring.io/milestone"&gt;milestone repository&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-rsquo-s-new" class="anchor" name="what-rsquo-s-new"&gt;&lt;/a&gt;What&amp;rsquo;s new&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Support for &lt;a href="http://docs.spring.io/autorepo/docs/spring-restdocs/1.0.0.RC1/reference/html5/#documenting-your-api-path-parameters"&gt;documenting path parameters&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Support for documenting multipart requests&lt;/li&gt;
+  &lt;li&gt;Support for &lt;a href="http://docs.spring.io/autorepo/docs/spring-restdocs/1.0.0.RC1/reference/html5/#documenting-your-api-constraints"&gt;documenting constraints declared using the Bean Validation API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Improved extensibility&lt;/li&gt;
+  &lt;li&gt;Improved configurability, including &lt;a href="http://docs.spring.io/autorepo/docs/spring-restdocs/1.0.0.RC1/reference/html5/#documenting-your-api-customizing"&gt;template-based snippet rendering that allows you to take complete control over the generated snippets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;&lt;a href="#getting-started" class="anchor" name="getting-started"&gt;&lt;/a&gt;Getting started&lt;/h2&gt;&lt;p&gt;To get started with Spring REST Docs, please refer to the &lt;a href="http://docs.spring.io/autorepo/docs/spring-restdocs/1.0.0.RC1/reference/html5/#getting-started"&gt;getting started section&lt;/a&gt; of the &lt;a href="http://docs.spring.io/autorepo/docs/spring-restdocs/1.0.0.RC1/reference/html5/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#upgrading" class="anchor" name="upgrading"&gt;&lt;/a&gt;Upgrading&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;re upgrading to Spring REST Docs from 1.0.0.M1, you&amp;rsquo;ll need to change your dependency from &lt;code&gt;spring-restdocs&lt;/code&gt; to &lt;code&gt;spring-restdocs-mockmvc&lt;/code&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#schedule" class="anchor" name="schedule"&gt;&lt;/a&gt;Schedule&lt;/h2&gt;&lt;p&gt;Spring REST Docs 1.0.0.RELEASE is planned for early October. Please grab the RC and &lt;a href="https://github.com/spring-projects/spring-restdocs/issues"&gt;let us know&lt;/a&gt; about any problems you encounter.&lt;/p&gt;&lt;h2&gt;&lt;a href="#springone-2015" class="anchor" name="springone-2015"&gt;&lt;/a&gt;SpringOne 2015&lt;/h2&gt;&lt;p&gt;I&amp;rsquo;ll be talking about &lt;a href="https://2015.event.springone2gx.com/schedule/sessions/documenting_restful_apis.html"&gt;documenting RESTful APIs&lt;/a&gt;, including some live coding with Spring REST Docs, at this year&amp;rsquo;s &lt;a href="http://springone2gx.com"&gt;SpringOne&lt;/a&gt; in Washington, DC. I&amp;rsquo;d love to see you there.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - September 8, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/09/08/this-week-in-spring-september-8-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-09-08:2229</id>
+    <updated>2015-09-08T06:00:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installation of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I left Tokyo, Japan, and have been in Shanghai, China, speaking to a few large-scale startups - including &lt;a href="http://Ele.me"&gt;Ele.me&lt;/a&gt;, the largest food delivery service and application in a &lt;em&gt;very&lt;/em&gt; crowded Chinese market with more than 2 million orders every day - about building cloud-native applications using Spring Boot, Spring Cloud and Cloud Foundry! Tomorrow, it&amp;rsquo;s off to Oslo, Norway, &lt;a href="http://2015.javazone.no/"&gt;for the amazing JavaZone&lt;/a&gt; conference. I love this conference and have, in the last two years, been unable to attend because it was concurrent with SpringOne2GX! Happily, this year it is not, and I&amp;rsquo;ll be passing through on my way to Washington DC and SpringOne2GX 2015, this Monday!&lt;/p&gt;&lt;p&gt;The Spring team is hard at work this week &lt;a href="http://springone2gx.com/"&gt;preparing for SpringOne2GX 2015&lt;/a&gt;, starting next Monday, and so this week&amp;rsquo;s seen a &lt;em&gt;ton&lt;/em&gt; of exciting new releases! We&amp;rsquo;re all excited for the next week and we hope to see you there!&lt;/p&gt;&lt;p&gt;Finally, it is my pleasure to share that my dear friend Kenny Bastani, who I asked to be the co-author of the upcoming book, O&amp;rsquo;Reilly&amp;rsquo;s upcoming &lt;a href="http://shop.oreilly.com/product/0636920038252.do"&gt;&lt;em&gt;Cloud Native Java&lt;/em&gt;&lt;/a&gt;, joins my team this week as the first new Spring Developer Advocate. I hope &lt;a href="http://twitter.com/kennybastani"&gt;you&amp;rsquo;ll join me in welcoming him to the community and family&lt;/a&gt;!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Data ninja Christoph Strobl put together a nice post on &lt;a href="http://spring.io/blog/2015/09/04/what-s-new-in-spring-data-release-gosling"&gt;what&amp;rsquo;s coming in Spring Data Gosling &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring ninja Stéphane Nicoll just &lt;a href="http://spring.io/blog/2015/09/01/spring-framework-4-2-1-available-now"&gt;announced Spring framework 4.2.1 is now available&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Spring Boot co-founder and all around nice guy &lt;a href="http://spring.io/blog/2015/09/04/spring-boot-1-3-0-m5-available-now"&gt;Phil Webb just announced that Spring Boot 1.3.0 M5 is now available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Security lead &lt;a href="http://spring.io/blog/2015/09/02/spring-ldap-2-0-4-released"&gt;Rob Winch just announced some updates to Spring Security LDAP&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Web ninja &lt;a href="http://spring.io/blog/2015/09/01/spring-web-flow-2-4-2-released"&gt;Rossen Stoyanchev announced Spring Web Flow 2.4.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Statemachine lead Janne Valkealahti &lt;a href="http://spring.io/blog/2015/09/01/spring-statemachine-1-0-0-rc1-released"&gt;just announced 1.0.0.RC1 - get the bits and kick the tires&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Our pal Ken Kreuger has put &lt;a href="https://www.udemy.com/microservices-with-spring-cloud/"&gt;together a Spring Cloud tutorial on Udemy&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Dave Burke&amp;rsquo;s put together a nice post on one of &lt;a href="http://nixmash.com/java/using-spring-boot-commandlinerunner/"&gt;my favorite Spring Boot features, &lt;code&gt;CommandLineRunner&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This Czech-language post on running Spring Boot &lt;a href="http://www.java-skoleni.cz/novinky/jak-spustit-spring-boot-aplikaci-na-openshift.html"&gt;applications on Openshift looks pretty interesting!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Speaking of which, Red Hat &lt;em&gt;also&lt;/em&gt; did a blog on &lt;a href="https://blog.openshift.com/using-openshift-enterprise-grade-spring-boot-deployments/"&gt;running Spring Boot applications on Openshift this week&lt;/a&gt;! It is nice to see the likes of Red Hat talking about our cloud native technology stack.&lt;/li&gt;
+  &lt;li&gt;Tomasz Nurkiewicz has put together a really cool &lt;a href="http://www.nurkiewicz.com/2015/09/displaying-progress-of-spring.html"&gt;blog on monitoring the startup progress of a Spring Boot application&lt;/a&gt;. Of course Spring Boot applications typically take less than three seconds from &lt;code&gt;java -jar ..&lt;/code&gt; to handling requests, as he points out, but it can be helpful to get visibility into this progress!&lt;/li&gt;
+  &lt;li&gt;This video on &lt;a href="https://www.youtube.com/watch?v=pgQ9Bs-6l2k"&gt;Spring Boot web looked pretty interesting&lt;/a&gt;!&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>What's New In Spring Data Release Gosling?</title>
     <link rel="alternate" href="https://spring.io/blog/2015/09/04/what-s-new-in-spring-data-release-gosling" />
@@ -1471,35 +1514,5 @@ var OwnerController = [&amp;#39;$scope&amp;#39;,&amp;#39;$state&amp;#39;,&amp;#3
   &lt;li&gt;Generate command &amp;ldquo;selenium all&amp;rdquo; &lt;a href="https://jira.spring.io/browse/ROO-3636"&gt;ROO-3636&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Add support to generate Generic Methods &lt;a href="https://jira.spring.io/browse/ROO-3648"&gt;ROO-3648&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;p&gt;It is highly recommended that all Spring Roo users upgrade to this version.&lt;/p&gt;&lt;p&gt;For full details on the changes made in the release, please refer to the&lt;br/&gt;&lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10340&amp;version=15266"&gt;Release Note in Jira&lt;/a&gt;&lt;/p&gt;&lt;p&gt;For more project specific information please see the&lt;br/&gt;&lt;a href="http://projects.spring.io/spring-roo/"&gt;Site&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-roo"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/ROO-3655"&gt;Issues in Jira&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Thanks to the awesome users who came up with useful bug reports and suggestions.&lt;br/&gt;This is a candidate release, please try out the updates and provide feedback.&lt;br/&gt;As always, you&amp;rsquo;ll also find Roo on Twitter - either follow @SpringRoo or just include #SpringRoo in your tweets.&lt;/p&gt;&lt;p&gt;Stay tuned!&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 1.3.0.M3 Available Now</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/08/11/spring-boot-1-3-0-m3-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Stéphane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2015-08-11:2209</id>
-    <updated>2015-08-11T11:36:09Z</updated>
-    <content type="html">&lt;p&gt;It is my pleasure to announce that Spring Boot v1.3.0.M3 is available now from the &lt;a href="http://repo.springsource.org/milestone/"&gt;Spring milestone repository&lt;/a&gt;. This release includes &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=milestone%3A1.3.0.M3+is%3Aissue+is%3Aclosed"&gt;90 fixes and improvements&lt;/a&gt; and merges &lt;a href="https://github.com/spring-projects/spring-boot/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+milestone%3A1.3.0.M3"&gt;38 pull-requests&lt;/a&gt;! Thanks &lt;em&gt;again&lt;/em&gt; to everyone that has contributed.&lt;/p&gt;&lt;p&gt;Highlights of the new release include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;HTTP session persistence (enabled automatically with Devtools)&lt;/li&gt;
-  &lt;li&gt;Configuration improvements for JMS and AMQP endpoints&lt;/li&gt;
-  &lt;li&gt;Various Logback and log4j 2 improvements&lt;/li&gt;
-  &lt;li&gt;Auto-configuration classes can now be excluded via configuration&lt;/li&gt;
-  &lt;li&gt;Auto-configuration for embedded MongoDB&lt;/li&gt;
-  &lt;li&gt;Auto-configuration for H2 web console&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;For a complete list of changes, and upgrade instructions, see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.3-Release-Notes"&gt;Spring Boot 1.3 Release Notes&lt;/a&gt; on the wiki and the updated &lt;a href="http://docs.spring.io/spring-boot/docs/1.3.0.M3/reference/htmlsingle/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h1&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC&lt;/a&gt; soon. It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. Join Brian and myself for an &lt;a href="https://2015.event.springone2gx.com/schedule/sessions/intro_to_spring_boot_for_the_web_tier.html"&gt;intro to Spring Boot for the web tier&lt;/a&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Batch 3.0.5.RELEASE is now available</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/08/10/spring-batch-3-0-5-release-is-now-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Michael Minella</name>
-    </author>
-    <id>tag:spring.io,2015-08-10:2208</id>
-    <updated>2015-08-10T17:48:05Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that Spring Batch 3.0.5.RELEASE is now available via Maven Central, Github and the Pivotal download repository. This is the 5th maintenance release for the 3.0.x branch of Spring Batch and addresses a number of minor enhancements as well as bringing Spring Batch fully compatible with Spring Framework 4.2. Many thanks to all of those who submitted the many &lt;a href="https://github.com/spring-projects/spring-batch/pulls"&gt;pull requests&lt;/a&gt; that went into this release.&lt;/p&gt;&lt;p&gt;&lt;a href="http://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-batch/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;&lt;p&gt;We look forward to your feedback in &lt;a href="https://jira.spring.io/browse/BATCH"&gt;Jira&lt;/a&gt;, &lt;a href="http://stackoverflow.com/questions/tagged/spring-batch"&gt;StackOverflow&lt;/a&gt;, or to me directly via Twitter &lt;a href="twitter.com/michaelminella"&gt;@michaelminella&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h2&gt;&lt;p&gt;Check out what&amp;rsquo;s new in Spring at SpringOne in Washington D.C! Learn about Spring Batch updates and how they fit into a modern architecture at &lt;a href="https://2015.event.springone2gx.com/schedule/sessions/who_needs_batch_these_days.html"&gt;Who needs batch these days?&lt;/a&gt; as well as learning about the future of batch and streaming technologies in the various Spring XD talks. Register today!&lt;/p&gt;</content>
   </entry>
 </feed>

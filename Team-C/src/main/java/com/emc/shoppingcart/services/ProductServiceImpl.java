@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.emc.shoppingcart.dao.ProductDao;
+import com.emc.shoppingcart.dao.RolesDao;
+import com.emc.shoppingcart.dao.UserDao;
 import com.emc.shoppingcart.model.Product;
 
 @Service
@@ -16,13 +18,15 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProductDao productDao;
+	
+	@Autowired
+	RolesDao rolesDao;
 
 	//@Transactional
 	public String addProduct(Product product) {
 
 		try {
 			productDao.addProduct(product);
-			// productDao.addproductToFile(product);
 			return "SUCCESSFULL_UPDATE";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,17 +83,14 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	@Transactional
-	public String transactionExProduct(Product product) {
-		try {
+	public String transactionExProduct(Product product) throws Exception{
+		
 			productDao.addProduct(product);
-			productDao.addproductToFile(product);
-			return "SUCCESSFULL_UPDATE";
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-			return "UPDATE_FAILED";
+			rolesDao.insertRole(null);
+//			productDao.addproductToFile(product);
+			return "succesfully added";
 		}
 		
 	}
 
-}
+

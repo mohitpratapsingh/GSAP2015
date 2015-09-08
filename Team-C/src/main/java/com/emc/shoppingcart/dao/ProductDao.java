@@ -11,5 +11,5 @@ public interface ProductDao {
 	public String deleteProduct(long productId);
 	public String updateProduct(Product product);
 	public Product getProductById(int productId);
-	public void addproductToFile(Product product);
+	public void addproductToFile(Product product) throws Exception;
 }

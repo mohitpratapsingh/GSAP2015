@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="Team-C"/>
+<aop-project name="Team-C">
+<aspect-definition advice-class-name="org.springframework.transaction.interceptor.TransactionInterceptor" advice-method-name="invoke" advice-method-parameter-types="org.aopalliance.intercept.MethodInvocation" advice-type="AROUND" aspect-end-line-number="15" aspect-name="org.springframework.transaction.interceptor.TransactionInterceptor#Team-C#src/main/webapp/WEB-INF/spring/root-context.xml#15" aspect-start-line-number="15" factory-id="org.springframework.ide.eclipse.aop.core.javaAdvisorDefinitionElementFactory" file="/Team-C/src/main/webapp/WEB-INF/spring/root-context.xml" pointcut-expression="(@within(org.springframework.transaction.annotation.Transactional) || @annotation(org.springframework.transaction.annotation.Transactional)) &amp;&amp; execution(* *..*(..))" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:Team-C|3:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml|7:beans:beans:8|8:productServiceImpl:8" bean-file="/Team-C/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/Team-C/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" source="=Team-C/C:\/Users\/shivas7\/.m2\/repository\/org\/springframework\/spring-tx\/4.0.0.RELEASE\/spring-tx-4.0.0.RELEASE.jar&lt;org.springframework.transaction.interceptor(TransactionInterceptor.class[TransactionInterceptor~invoke~Lorg.aopalliance.intercept.MethodInvocation;" source-start-line="-1" target="=Team-C/src\/main\/java&lt;com.emc.shoppingcart.services{ProductServiceImpl.java[ProductServiceImpl~transactionExProduct~QProduct;" target-start-line="86"/>
+</aspect-definition>
+</aop-project>
 </aop-reference-model>

@@ -96,7 +96,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void addproductToFile(Product product) {
+	public void addproductToFile(Product product) throws Exception {
 		try {
 
 			ObjectInputStream reader = new ObjectInputStream(new FileInputStream("C:\\product_objects.txt"));
@@ -112,17 +112,21 @@ public class ProductDaoImpl implements ProductDao {
 			System.out.println("wrote to file");
 			writer.close();
 
-			//throw new FileNotFoundException();
+			throw new Exception();
 
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
+			throw e;
+			
 		} catch (IOException e) {
 
 			e.printStackTrace();
+			throw e;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw e;
 		}
 
 	}

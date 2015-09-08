@@ -27,4 +27,11 @@ public class RolesDaoImpl implements RolesDao{
 		}
 	}
 
+	@Override
+	public boolean insertRole(Roles role) {
+			String sql="insert into roles(r_name) values(?)";
+			jdbctemplate.update(sql, role.getrName());
+		return true;
+	}
+
 }
