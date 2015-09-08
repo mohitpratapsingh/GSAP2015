@@ -38,3 +38,14 @@
 127.0.0.1 - - [07/Sep/2015:22:51:16 +0530] "POST /shoppingcart/userLoginSubmit HTTP/1.1" 400 1011
 127.0.0.1 - - [07/Sep/2015:23:10:40 +0530] "GET / HTTP/1.1" 404 994
 127.0.0.1 - - [07/Sep/2015:23:10:41 +0530] "GET /shoppingcart/ HTTP/1.1" 200 783
+127.0.0.1 - - [07/Sep/2015:23:45:09 +0530] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [07/Sep/2015:23:45:10 +0530] "GET /shoppingcart/ HTTP/1.1" 200 1017
+127.0.0.1 - - [07/Sep/2015:23:46:57 +0530] "POST /shoppingcart/userLoginSubmit HTTP/1.1" 400 1011
+127.0.0.1 - - [07/Sep/2015:23:47:15 +0530] "POST /shoppingcart/userLoginSubmit HTTP/1.1" 200 1103
+127.0.0.1 - - [07/Sep/2015:23:48:14 +0530] "POST /shoppingcart/userLoginSubmit HTTP/1.1" 400 1011
+127.0.0.1 - - [07/Sep/2015:23:48:28 +0530] "POST /shoppingcart/userLoginSubmit HTTP/1.1" 200 9989
+127.0.0.1 - - [07/Sep/2015:23:50:32 +0530] "GET /shoppingcart/adminRegForm HTTP/1.1" 200 1239
+127.0.0.1 - - [07/Sep/2015:23:50:52 +0530] "POST /shoppingcart/adminRegistration HTTP/1.1" 200 10190
+127.0.0.1 - - [07/Sep/2015:23:51:08 +0530] "GET /shoppingcart/register HTTP/1.1" 200 2399
+127.0.0.1 - - [07/Sep/2015:23:52:41 +0530] "POST /shoppingcart/userRegistration HTTP/1.1" 200 1068
+127.0.0.1 - - [07/Sep/2015:23:52:58 +0530] "POST /shoppingcart/userLoginSubmit HTTP/1.1" 400 1011

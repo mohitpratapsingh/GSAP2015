@@ -69,9 +69,9 @@ public class ProductDaoImpl implements ProductDao {
 	public String updateProduct(Product product) {
 		
 			try {
-				String sql = "update product set p_name=?,price=?,category=?,image_name=?";
+				String sql = "update product set p_name=?,price=?,category=?,image_name=? where p_id=?";
 				jdbcTemplate.update(sql, product.getpName(), product.getPrice(), product.getCategory(),
-						product.getImageName());
+						product.getImageName(),product.getpId());
 				return "PRODUCT_UPDATED_SUCCESSFULLY";
 			} catch (Exception e) {
 				e.printStackTrace();

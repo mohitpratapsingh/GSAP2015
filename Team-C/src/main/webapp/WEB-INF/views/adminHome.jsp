@@ -5,18 +5,17 @@
 
 <html>
 <head>
-	<title>Home</title>
+	<title>admin Home</title>
 </head>
 <body>
+<center>
 <h2>
 Welcome ${dataMap.get("user").getUserFname()}
 </h2>
 
-
-
 <table border="1"  id="productTable" >
 <thead>
- <tr>Product List</tr>
+ <th>Product List</th>
  <tr>
  	<th>Selection</th>
     <th>Product Name</th>
@@ -44,8 +43,32 @@ Welcome ${dataMap.get("user").getUserFname()}
 </td>
   </tbody>
 </table> 
+<p/>
+<p/>
+<table border="1">
+<thead>
+ <th><h2>User List</h2></th>
+ <tr>
+    <th>Name</th>
+    <th>Email ID</th>
+    <th>Address</th>
+    <th>Phone number</th>
+    <th>Gender</th>
+  </tr>
+</thead>
 
-
+ <tbody> 
+ <c:forEach items="${dataMap.get(\"userList\")}" var="user">
+    <tr>
+      <td>${user.getUserFname()} ${user.getUserLname()}</td>
+      <td>${user.getEmailId()}</td>
+      <td>${user.getAddressLine1()} ${user.getAddressLine2()}</td>
+      <td>${user.getPhoneNumber()}</td>
+      <td>${user.getGender()}</td>
+    </tr>
+  </c:forEach> 
+  </tbody>
+</table> 
 
 <script type="text/javascript">
 
@@ -77,4 +100,5 @@ var test=[];
         }
     </script>
 </body>
+</center>
 </html>

@@ -70,9 +70,9 @@ public class UserDaoImpl implements UserDao {
 	public String updateuser(User user) {
 
 		try {
-			String sql = "update user set user_lname=?,user_fname=?,email_id=?,passwrd=?,address_line1=?,address_line2=?,phone_number=?,gender=?";
+			String sql = "update user set user_lname=?,user_fname=?,email_id=?,passwrd=?,address_line1=?,address_line2=?,phone_number=?,gender=? where u_id=?";
 			jdbcTemplate.update(sql, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(),
-					user.getAddressLine1(), user.getAddressLine2(), user.getPhoneNumber(), user.getGender());
+					user.getAddressLine1(), user.getAddressLine2(), user.getPhoneNumber(), user.getGender(),user.getuId());
 			return "USER_UPDATED_SUCCESSFULLY";
 
 		} catch (Exception e) {

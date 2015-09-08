@@ -10,7 +10,7 @@ Welcome ${dataMap.get("user").getUserFname()}
 </h4>
 <table border="1">
 <thead>
- <tr>Product List</tr>
+ <th>Product List</th>
  <tr>
     <th>Product Name</th>
     <th>Product Price</th>

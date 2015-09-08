@@ -14,4 +14,5 @@ public interface UserService {
 	public String updateUser(User user);
 	public User getUserByUserName(String userName);
 	public String insertAdmin(User user);
+	public String deleteMultipleUsers(List<String> userNameList);
 }

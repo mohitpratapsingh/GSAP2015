@@ -1,5 +1,6 @@
 package com.emc.shoppingcart.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public String removeMultipleProducts(List<Integer> productidList) {
 		
-		 List<Integer> notDeleted = null;
+		 List<Integer> notDeleted = new ArrayList<Integer>();
 		 String failedToDelete="Could not delete products :";
 		for(Integer productId: productidList){
 			

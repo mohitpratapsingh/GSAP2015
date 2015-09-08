@@ -1,5 +1,6 @@
 package com.emc.shoppingcart.services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -139,8 +140,32 @@ public class UserServiceImpl implements UserService {
 		
 		return userDao.insertAdmin(user);
 	}
+
+	@Override
+	public String deleteMultipleUsers(List<String> usernameList) {
+		 List<String> notDeleted = new ArrayList<String>();
+		 String failedToDelete="Could not delete users :";
+		for(String userName: usernameList){
+			
+			String response=userDao.deleteUser(userName);
+			
+			if(response.equals("USER_DELETION_FAILED")){
+				notDeleted.add(userName);
+				failedToDelete=failedToDelete+" "+userName;
+			}
+
+		}
+		if(notDeleted.size()==0){
+			return "Successfully deleted the users";
+		}else{
+			return failedToDelete;
+		}
+		
+		
+	}
+	
+	}
 	
 	
 	
 
-}

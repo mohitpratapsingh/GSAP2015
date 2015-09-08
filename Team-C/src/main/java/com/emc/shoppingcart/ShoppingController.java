@@ -67,7 +67,7 @@ public class ShoppingController {
 				model.addAttribute("regResponse", response);
 				return "userLoginForm";
 			} else {
-				model.addAttribute("response", "user with username already existss");
+				model.addAttribute("regResponse", "user with username already existss");
 				User user1 = new User();
 				model.addAttribute("registerForm", user);
 				List<String> stateList = (List<String>) session.getAttribute("stateList");
@@ -109,22 +109,18 @@ public class ShoppingController {
 	}
 
 	@RequestMapping(value = "/deleteAdmin", method = RequestMethod.GET)
-	public String removeAdmin(@RequestParam("userName") String userName, Model model, HttpSession session) {
+	public String removeAdmin(@RequestParam("userNameList") List<String> userNameList, Model model, HttpSession session) {
 		Map<String, Object> dataMap = (Map<String, Object>) session.getAttribute("dataMap");
-		String response = userService.deleteUser(userName);
-
+		String response = userService.deleteMultipleUsers(userNameList);
 		List<Product> productList = productService.getProducts();
 		List<User> userList = userService.getUsersByRoleId(ConstantsClass.USER_ID);
 		dataMap.put("productList", productList);
 		dataMap.put("userList", userList);
 
-		if (response.equals("USER_DELETED_SUCCESSFULLY")) {
-			List<User> adminList = userService.getUsersByRoleId(ConstantsClass.ADMIN_ID);
-			dataMap.put("adminList", adminList);
-			dataMap.put("admin_add_message", "ADMIN DELETED SUCCESFULLY");
-		} else
-			dataMap.put("admin_add_message", "ADMIN COULD NOT BE DELETED");
-
+		List<User> adminList = userService.getUsersByRoleId(ConstantsClass.ADMIN_ID);
+		dataMap.put("adminList", adminList);
+		
+		model.addAttribute("delAdminmsg", response);
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
 

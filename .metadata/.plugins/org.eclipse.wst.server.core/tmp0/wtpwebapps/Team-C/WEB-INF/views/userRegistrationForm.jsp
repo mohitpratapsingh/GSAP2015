@@ -18,10 +18,11 @@ p    {color:red}
         <td><form:label path="emailId">Username (email )</form:label></td>
         <td><form:input path="emailId" /></td>
          <td><form:errors path="emailId" cssclass="error"></form:errors></td> 
-        <c:set var="message" value="${response}"/>
+         <p color="red"> ${regResponse}</p>
+<%--         <c:set var="message" value="${response}"/>
 	<c:if test="${(message!=null)}">
 	<p color="red"> <c:out value="${message}"/></p>
-	</c:if>
+	</c:if> --%>
         
     </tr>
     <tr>
@@ -73,7 +74,7 @@ p    {color:red}
     <tr>
         <td colspan="3">
         <center>
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="SUBMIT"/>
           </center>
         </td>
     </tr>

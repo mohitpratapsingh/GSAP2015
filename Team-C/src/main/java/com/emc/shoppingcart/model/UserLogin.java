@@ -10,7 +10,7 @@ public class UserLogin {
 	@NotEmpty @Email
 	private String emailId;
 	
-	@Size(min=4,max=12)
+	@NotEmpty
 	private String passwrd;
 
 	

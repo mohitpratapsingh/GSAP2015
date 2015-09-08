@@ -31,7 +31,7 @@ public class User implements Serializable{
 	
 	
 	public User(String gender, String userFname, String userLname, String emailId, String passwrd, String addressLine1,
-			String addressLine2, Long phoneNumber, int r_id) {
+			String addressLine2, Long phoneNumber) {
 		super();
 		this.gender = gender;
 		this.userFname = userFname;
@@ -41,7 +41,7 @@ public class User implements Serializable{
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
 		this.phoneNumber = phoneNumber;
-		this.r_id = r_id;
+		
 	}
 
 	public int getR_id() {

@@ -61,10 +61,11 @@ public class ProductController {
 			if (response.equals("SUCCESSFULL_UPDATE")) {
 				List<Product> productList = productService.getProducts();
 				dataMap.put("productList", productList);
-				dataMap.put("prod_add_message", response);
+				//dataMap.put("prod_add_message", response);
+				model.addAttribute("prodMsg", response);
 			} else {
-
-				dataMap.put("prod_add_message", response);
+				model.addAttribute("prodMsg", response);
+				//dataMap.put("prod_add_message", response);
 			}
 
 			model.addAttribute("dataMap", dataMap);
@@ -83,11 +84,13 @@ public class ProductController {
 			HttpSession session) {
 
 		String response = productService.removeMultipleProducts(productIdList);
+		System.out.println(response);
 		Map<String, Object> dataMap = (Map<String, Object>) session.getAttribute("dataMap");
 		List<User> userList = userService.getUsersByRoleId(ConstantsClass.USER_ID);
 		dataMap.put("userList", userList);
-		
-		model.addAttribute("delMessage",response);
+		List<Product> productList = productService.getProducts();
+		dataMap.put("productList", productList);
+		model.addAttribute("prodMsg",response);
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
 

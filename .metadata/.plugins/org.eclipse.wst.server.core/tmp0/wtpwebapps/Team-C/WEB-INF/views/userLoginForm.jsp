@@ -53,6 +53,7 @@ h4   {color:green}
 <c:if test="${(message!=null)}">
 <p color="red"> <c:out value="${message}"/></p> 
 </c:if>
+
 </center>
 </body>
 </html>

@@ -6,24 +6,21 @@
 	<title>Home</title>
 
 </head>
+<center>
 <body>
-<h2>
+<h2 color="green">
 Welcome ${dataMap.get("user").getUserFname()}
 </h2>
 
-<%--  <c:set var="temp" value="${dataMap.get(.\"productList.\")}"/>
-<c:out value="${salary}"/>
- 
-
-<h1>${temp.getpName()} </h1>
-
- --%>
+<h3> ${prodMsg}</h3>
+<h3><p id="notSelected"></h3>
 
 <p1>
 <table border="1">
 <thead>
  <tr><h2>Product List</h2></tr>
  <tr>
+ 	<th>selection</th>
     <th>Product Name</th>
     <th>Product Price</th>
     <th>Product Category</th>
@@ -55,10 +52,11 @@ Welcome ${dataMap.get("user").getUserFname()}
 <button onclick="delProduct()">Delete product</button>
 </td>
 </tr></table>
-<p2>
+<p2/>
+<p2/>
 <table border="1">
 <thead>
- <tr><h2>User List</h2></tr>
+ <th><h2>User List</h2></th>
  <tr>
     <th>Name</th>
     <th>Email ID</th>
@@ -81,7 +79,7 @@ Welcome ${dataMap.get("user").getUserFname()}
   </tbody>
 </table> 
 </p2>
-<p3>
+</p3>
 <table border="1">
 <thead>
  <tr><h2>Admin List</h2></tr>
@@ -112,24 +110,44 @@ Welcome ${dataMap.get("user").getUserFname()}
 <input type="button" value="Add Admin" onclick="window.location='adminRegForm';" />
 </td>
 <td>
-<input type="button" id="delAdmin" value="Delete Admin" disabled onclick="delAdmin()" />
+<input type="button" id="delAdmin" value="Delete Admin"  onclick="delAdmin()" />
 
 </td>
 </tr></table> 
 </p3>
 
 <script type="text/javascript">
-var checker = document.getElementById('cbox');
-var sendbtn = document.getElementById('delAdmin');
-var username;
- function onCheckbox2() {
-  sendbtn.disabled = false;
-  username=checker.value;
+/* var checker = document.getElementById('cbox');
+var sendbtn = document.getElementById('delAdmin'); */
+var userNameList=[];
+ function onCheckbox2(checkbox) {
+	 //if(sendbtn.disabled== false){sendbtn.disabled = false;}
+  		
+  if (checkbox.checked) 
+  {
+	  userNameList.push(checkbox.value);
+  }
+  else 
+  {
+  		var index;
+  		for(i=0;i<userNameList.length;i++)
+  		{
+  			if(userNameList[i]==checkbox.value)
+  			index=i;
+  		}
+  		if(index > -1)
+  			userNameList.splice(index,1);
+  }
+  
+  
 };
 
 function delAdmin() {
 	
-	window.location.href = "deleteAdmin?userName=" + username;
+	if(userNameList.length)
+		window.location.href = "deleteAdmin?userNameList=" + userNameList;
+	else 
+		alert("no item selected");
 }
 
 
@@ -157,12 +175,18 @@ var test=[];
        	}
         
       function delProduct() {
-        	
-    	  window.location = "deleteProduct?prodIductList=" +test;
+        	if(test.length){window.location = "deleteProduct?prodIductList=" +test;
+                }		
+        	else 
+        		//document.getElementById("notSelected").innerHTML="No Items selected!";
+        	alert("no item selected")
 
         }
+      
+      
     </script>
 
 
 </body>
+</center>
 </html>
