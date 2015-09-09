@@ -1,14 +1,6 @@
 package com.shoppingcart.repository.tests;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
-
-import org.junit.Test;
-
-import com.emc.shopping.model.Products;
 import com.emc.shoppingcart.repository.ProductDaoImpl;
-import com.emc.shoppingcart.repository.UserSignupDaoImpl;
 
 public class ProductDaoTests {
 	/*@Autowired

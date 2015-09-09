@@ -1,7 +1,6 @@
 package com.emc.shoppingcart.repository;
 
 import java.util.List;
-import java.util.Map;
 
 import com.emc.shopping.model.Products;
 //import com.way2learnonline.model.Account;

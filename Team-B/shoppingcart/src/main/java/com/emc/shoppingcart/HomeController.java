@@ -1,12 +1,9 @@
-package com.emc.shoppingcart;
+	package com.emc.shoppingcart;
 
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-
 import java.util.List;
-import java.util.Map;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,7 +12,6 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -167,7 +163,7 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping(value = "/adminLanding", method = RequestMethod.POST)
-	public String AdminPage(@ModelAttribute("adminList") User user1, Model model,HttpServletRequest request) {
+	public String adminPage(@ModelAttribute("adminList") User user1, Model model,HttpServletRequest request) {
 		try{	
 			System.out.println("Email:"+request.getParameter("session"));
 			String emailId=request.getParameter("session");
@@ -205,7 +201,7 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping(value = "/ProductForm", method = RequestMethod.POST)
-	public String ProdPage(@ModelAttribute("prodForm") Products p, Model model) {	
+	public String prodPage(@ModelAttribute("prodForm") Products p, Model model) {	
 		Products product=new Products();
 		model.addAttribute("prodFormSubmit", product);
 		return "ProductForm";
