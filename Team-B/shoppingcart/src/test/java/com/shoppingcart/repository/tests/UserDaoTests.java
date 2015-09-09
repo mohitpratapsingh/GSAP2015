@@ -1,25 +1,6 @@
 package com.shoppingcart.repository.tests;
 
-import static org.junit.Assert.*;
-
-import java.sql.SQLException;
-
-
-import java.util.List;
-
-import org.junit.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-import org.junit.runner.RunWith;
-
-import com.emc.shopping.model.User;
 import com.emc.shoppingcart.repository.UserSignupDaoImpl;
-
-import org.springframework.beans.factory.annotation.Autowired;
-//import com.way2learnonline.services.tests.ContextConfiguration;
-//import com.way2learnonline.service.tests.ClassPathXmlApplicationContext;
-import org.springframework.context.support.*;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 /*@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/WEB-INF/spring/appServlet/servlet-context.xml",

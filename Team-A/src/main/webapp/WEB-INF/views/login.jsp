@@ -25,10 +25,11 @@
                 </tr>     
             </table>
         </form:form>
+        
         <form:form action="registration1" method="post" commandName="register">
         <input type="submit" value="SignUp">
         </form:form>
     </div>
-    <div align="center"><font color="red">${errorMessage}<br>${Message}</div>
+    <div align="center"><font color="red" weight="bold">${errorMessage}<br>${Message}</div>
 </body>
 </html>

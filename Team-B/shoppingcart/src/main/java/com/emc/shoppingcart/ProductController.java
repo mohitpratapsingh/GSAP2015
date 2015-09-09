@@ -2,7 +2,6 @@ package com.emc.shoppingcart;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -16,13 +15,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.emc.shopping.model.Products;
 import com.emc.shopping.model.User;
-import com.emc.shopping.model.UserLogin;
 import com.emc.shoppingcart.service.ProductService;
-import com.emc.shoppingcart.service.UserLoginService;
 import com.emc.shoppingcart.service.UserService;
 
 //import org.springframework.web.servlet.ModelAndView;

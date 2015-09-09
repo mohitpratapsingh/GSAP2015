@@ -2,7 +2,6 @@ package com.emc.shoppingcart;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -111,7 +110,7 @@ public class RegisterController {
 	    
 	   
 	    @RequestMapping(value="/registerAdmin",method = RequestMethod.POST)
-	    public String AdminRegistration(@ModelAttribute("adminForm") @Valid User user, BindingResult result2,
+	    public String adminRegistration(@ModelAttribute("adminForm") @Valid User user, BindingResult result2,
 	            Model model,HttpServletRequest request) {
 	        try{
 	        //  registration logic here...

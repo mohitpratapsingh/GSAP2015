@@ -1,12 +1,9 @@
 package com.emc.shoppingcart.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.emc.shopping.model.User;
-import com.emc.shopping.model.UserLogin;
 import com.emc.shoppingcart.repository.UserSignupDaoImpl;
 //@Component
 @Service(value = "userLogin")

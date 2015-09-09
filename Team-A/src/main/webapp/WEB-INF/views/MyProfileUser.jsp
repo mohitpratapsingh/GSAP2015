@@ -46,6 +46,8 @@
                     <td>${UserProf.pincode}</td>
                 </tr>    
             </table>
+            <!-- <a type="button" href="login">Back</a> -->
+            <input type="button" onclick="history.back();" value="Back"/>
     </div>
 </body>
 </html>
