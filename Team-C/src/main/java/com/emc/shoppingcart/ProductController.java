@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,8 +45,8 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("addProductForm") /*@Valid*/ Product product, Model model, HttpSession session,
-			BindingResult bindingResult) {
+	public String addProduct(@ModelAttribute("addProductForm") /* @Valid */ Product product, Model model,
+			HttpSession session, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
 			return "addProduct";
@@ -61,11 +60,11 @@ public class ProductController {
 			if (response.equals("SUCCESSFULL_UPDATE")) {
 				List<Product> productList = productService.getProducts();
 				dataMap.put("productList", productList);
-				//dataMap.put("prod_add_message", response);
+				// dataMap.put("prod_add_message", response);
 				model.addAttribute("prodMsg", response);
 			} else {
 				model.addAttribute("prodMsg", response);
-				//dataMap.put("prod_add_message", response);
+				// dataMap.put("prod_add_message", response);
 			}
 
 			model.addAttribute("dataMap", dataMap);
@@ -90,7 +89,7 @@ public class ProductController {
 		dataMap.put("userList", userList);
 		List<Product> productList = productService.getProducts();
 		dataMap.put("productList", productList);
-		model.addAttribute("prodMsg",response);
+		model.addAttribute("prodMsg", response);
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
 

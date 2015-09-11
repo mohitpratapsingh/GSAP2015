@@ -24,58 +24,54 @@ public class ProductTest {
 	@Autowired
 	ProductService productService;
 	
-/*	@Test
+	@Test
 	public void getproducts() {
 		List<Product> productList = productService.getProducts();
 		System.out.println(productList.size());
 		assertFalse(productList.isEmpty());
-	}*/
+	}
 
-/*	@Test
+	@Test
 	public void addProduct() {
-		Product product=new Product("Micromax Canvas 2", 10000f, "Electronics", "canvas"); //check for null product and missing fields
+		Product product=new Product("Micromax Canvas 2", 10000f, "Electronics", "canvas");
 		String response=productService.addProduct(product);
 		System.out.println(response);
 		assertNotNull(response);
-	}*/
+	}
 	
-/*	@Test
+	@Test
 	public void deleteProduct() {
-		Long productId = 108L; //check for different ids[existing ,not existing and null]
+		Long productId = 108L; 
 		String response=productService.removeProduct(productId);
 		System.out.println(response);
 		assertNotNull(response);
-	}*/
+	}
 	
-/*	@Test
+	@Test
 	public void updateProduct() {
 		Product product=new Product("Micromax Canvas 2", 10000f, "Electronics", "canvas");
 		product.setpId(119);
 		String response=productService.updateProduct(product);
 		System.out.println(response);
 		assertNotNull(response);
-	}*/
+	}
 	
-/*	@Test
+	@Test
 	public void deleteMultipleProducts(){
 		List<Integer> productIdList = new ArrayList<Integer>();
 		productIdList.add(118);
 	    String response=productService.removeMultipleProducts(productIdList);
 	    System.out.println(response);
 	    assertNotNull(response);
-	}*/
+	}
 	
 	@Test
-	public void testTransaction() throws Exception{
-		
-		try {
+	public void testTransaction(){
 		Product product=new Product("transaction product", 10000f, "Electronics", "canvas");
 	    String response=productService.transactionExProduct(product);
 	    System.out.println(response);
 	    assertNotNull(response);
-		} catch(Exception e){
-			e.printStackTrace();
-		}
+	
 	}
 	
 	

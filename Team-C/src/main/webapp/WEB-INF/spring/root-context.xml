@@ -11,6 +11,11 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>sql_queries.properties</value>
+		</property>
+	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 	

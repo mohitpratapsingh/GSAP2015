@@ -5,12 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.emc.shoppingcart.dao.ProductDao;
 import com.emc.shoppingcart.dao.RolesDao;
-import com.emc.shoppingcart.dao.UserDao;
 import com.emc.shoppingcart.model.Product;
 
 @Service
@@ -18,11 +19,11 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProductDao productDao;
-	
-	@Autowired
-	RolesDao rolesDao;
 
-	//@Transactional
+	@Autowired
+	private PlatformTransactionManager transactionManager;	
+
+	// @Transactional
 	public String addProduct(Product product) {
 
 		try {
@@ -30,17 +31,17 @@ public class ProductServiceImpl implements ProductService {
 			return "SUCCESSFULL_UPDATE";
 		} catch (Exception e) {
 			e.printStackTrace();
-			//System.out.println(e.getMessage());
+			// System.out.println(e.getMessage());
 			return "UPDATE_FAILED";
 		}
-	
+
 	}
 
 	@Override
 	public String removeProduct(long productId) {
 
 		return productDao.deleteProduct(productId);
-		
+
 	}
 
 	@Override
@@ -51,46 +52,51 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public String updateProduct(Product product) {
-		
+
 		return productDao.updateProduct(product);
 	}
 
-
-
 	@Override
 	public String removeMultipleProducts(List<Integer> productidList) {
-		
-		 List<Integer> notDeleted = new ArrayList<Integer>();
-		 String failedToDelete="Could not delete products :";
-		for(Integer productId: productidList){
-			
-			String response=productDao.deleteProduct(productId);
-			
-			if(response.equals("COULD_NOT_DELETE_PRODUCT")){
+
+		List<Integer> notDeleted = new ArrayList<Integer>();
+		String failedToDelete = "Could not delete products :";
+		for (Integer productId : productidList) {
+
+			String response = productDao.deleteProduct(productId);
+
+			if (response.equals("COULD_NOT_DELETE_PRODUCT")) {
 				notDeleted.add(productId);
-				failedToDelete=failedToDelete+" "+productId;
+				failedToDelete = failedToDelete + " " + productId;
 			}
 
 		}
-		if(notDeleted.size()==0){
+		if (notDeleted.size() == 0) {
 			return "Successfully deleted the products";
-		}else{
+		} else {
 			return failedToDelete;
 		}
-		
-		
+
 	}
 
 	@Override
-	@Transactional
-	public String transactionExProduct(Product product) throws Exception{
+	public String transactionExProduct(Product product)  {
 		
+		DefaultTransactionDefinition transactionDefinition= new DefaultTransactionDefinition();		
+		TransactionStatus transactionStatus=transactionManager.getTransaction(transactionDefinition);
+		
+	 try {
 			productDao.addProduct(product);
-			rolesDao.insertRole(null);
-//			productDao.addproductToFile(product);
+			productDao.addproductToFile(product);
+			transactionManager.commit(transactionStatus);
 			return "succesfully added";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			transactionManager.rollback(transactionStatus);
+			e.printStackTrace();
+			return "failed to add product";
 		}
 		
 	}
 
-
+}

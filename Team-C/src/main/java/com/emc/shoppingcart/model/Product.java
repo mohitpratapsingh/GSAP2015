@@ -4,11 +4,10 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class Product implements Serializable{
-	
+public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private long pId;
 	@NotEmpty
 	private String pName;
@@ -18,13 +17,13 @@ public class Product implements Serializable{
 	private String category;
 	@NotEmpty
 	private String imageName;
-	
+
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Product(String pName, Float price, String category, String imageName) {
-	
+
 		this.pName = pName;
 		this.price = price;
 		this.category = category;
@@ -70,7 +69,5 @@ public class Product implements Serializable{
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
-	
-	
-	
+
 }

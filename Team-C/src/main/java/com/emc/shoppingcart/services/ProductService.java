@@ -10,5 +10,5 @@ public String removeProduct(long productId);
 public String updateProduct(Product product);
 public List<Product> getProducts();
 public String removeMultipleProducts(List<Integer> productidList);
-public String transactionExProduct(Product product) throws Exception;
+public String transactionExProduct(Product product) ;
 }

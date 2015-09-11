@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,8 +54,8 @@ public class ShoppingController {
 	}
 
 	@RequestMapping(value = "/userRegistration", method = RequestMethod.POST)
-	public String signupUser(@ModelAttribute("registerForm") /*@Valid*/ User user, Model model, BindingResult bindingResult,
-			HttpSession session) {
+	public String signupUser(@ModelAttribute("registerForm") /* @Valid */ User user, Model model,
+			BindingResult bindingResult, HttpSession session) {
 		if (bindingResult.hasErrors()) {
 			return "userRegistrationForm";
 		} else {
@@ -98,9 +97,9 @@ public class ShoppingController {
 		if (response.equals("ADMIN_ADDED_SUCCESSFULLY")) {
 			List<User> adminList = userService.getUsersByRoleId(ConstantsClass.ADMIN_ID);
 			dataMap.put("adminList", adminList);
-			model.addAttribute("prodMsg",response);
+			model.addAttribute("prodMsg", response);
 		} else
-			model.addAttribute("prodMsg",response);
+			model.addAttribute("prodMsg", response);
 
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
@@ -109,7 +108,8 @@ public class ShoppingController {
 	}
 
 	@RequestMapping(value = "/deleteAdmin", method = RequestMethod.GET)
-	public String removeAdmin(@RequestParam("userNameList") List<String> userNameList, Model model, HttpSession session) {
+	public String removeAdmin(@RequestParam("userNameList") List<String> userNameList, Model model,
+			HttpSession session) {
 		Map<String, Object> dataMap = (Map<String, Object>) session.getAttribute("dataMap");
 		String response = userService.deleteMultipleUsers(userNameList);
 		List<Product> productList = productService.getProducts();
@@ -119,7 +119,7 @@ public class ShoppingController {
 
 		List<User> adminList = userService.getUsersByRoleId(ConstantsClass.ADMIN_ID);
 		dataMap.put("adminList", adminList);
-		
+
 		model.addAttribute("delAdminmsg", response);
 		model.addAttribute("dataMap", dataMap);
 		session.setAttribute("dataMap", dataMap);
@@ -128,11 +128,11 @@ public class ShoppingController {
 	}
 
 	@RequestMapping(value = "/userLoginSubmit", method = RequestMethod.POST)
-	public String loginModelAttribute(@ModelAttribute("loginForm") /*@Valid*/ UserLogin user, Model model, HttpSession session,
-			BindingResult bindingResult) {
-	/*	bindingResult.hasErrors()*/
-		System.out.println("id"+user.getEmailId());
-		if (user.getEmailId().equals("")||user.getPasswrd().equals("")) {
+	public String loginModelAttribute(@ModelAttribute("loginForm") /* @Valid */ UserLogin user, Model model,
+			HttpSession session, BindingResult bindingResult) {
+		/* bindingResult.hasErrors() */
+		System.out.println("id" + user.getEmailId());
+		if (user.getEmailId().equals("") || user.getPasswrd().equals("")) {
 			model.addAttribute("login", "Please enter both Email Id and Password");
 			return "userLoginForm";
 		} else {
