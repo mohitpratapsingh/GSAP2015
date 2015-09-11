@@ -47,7 +47,7 @@
                 </tr>    
             </table>
             <!-- <a type="button" href="login">Back</a> -->
-            <input type="button" onclick="history.back();" value="Back"/>
+            <input type="button" onclick="history.back();" value="Back">
     </div>
 </body>
 </html>
