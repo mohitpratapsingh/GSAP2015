@@ -1,4 +1,4 @@
-package com.emc.shoppingcart;
+package com.emc.shoppingcart.controller;
 
 
 import java.util.ArrayList;
@@ -27,7 +27,6 @@ import com.emc.shopping.model.Products;
 import com.emc.shopping.model.User;
 import com.emc.shopping.model.UserLogin;
 import com.emc.shoppingcart.repository.ProductDaoImpl;
-import com.emc.shoppingcart.repository.UserSignupDaoImpl;
 import com.emc.shoppingcart.service.ProductService;
 //import com.emc.shoppingcart.service.ListUsersService;
 //import com.emc.shoppingcart.repository.User_dao;
@@ -51,13 +50,10 @@ public class HomeController {
 	@Autowired
 	UserService listuser;
 	@Autowired
-	ProductDaoImpl product;
-	@Autowired
 	ProductService product1;
 	@Autowired
-	UserSignupDaoImpl user3,user4;
-	@Autowired
-	ProductService product2;
+	UserService user4;
+	
 	
 	/**
 	 * 

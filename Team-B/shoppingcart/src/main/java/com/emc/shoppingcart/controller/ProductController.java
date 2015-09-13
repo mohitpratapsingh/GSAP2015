@@ -1,4 +1,4 @@
-package com.emc.shoppingcart;
+package com.emc.shoppingcart.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import com.emc.shopping.model.Products;
 import com.emc.shopping.model.User;
 import com.emc.shopping.model.UserLogin;
 import com.emc.shoppingcart.service.ProductService;
-import com.emc.shoppingcart.service.UserLoginService;
+import com.emc.shoppingcart.service.UserLoginServiceImpl;
 import com.emc.shoppingcart.service.UserService;
 
 //import org.springframework.web.servlet.ModelAndView;
