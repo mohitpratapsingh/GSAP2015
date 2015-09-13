@@ -8,13 +8,11 @@ import org.springframework.stereotype.Service;
 import com.emc.shopping.model.User;
 import com.emc.shoppingcart.repository.UserSignupDaoImpl;
 
-//@Component
 @Service(value = "listuser")
 public class UserService {
 
 	@Autowired
 	UserSignupDaoImpl userDaoImpl;
-	
 
 	/**
 	 * 
@@ -23,31 +21,12 @@ public class UserService {
 	 * @throws Exception
 	 */
 	public String findNameByEmailId(String emailId) throws Exception {
-		try{
+		try {
 			String name;
 			name = userDaoImpl.findNameByEmailId(emailId);
-			System.out.println("Service Completed :name for this email ID is" + name );
+			System.out.println("Service Completed :name for this email ID is" + name);
 			return name;
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			throw e;
-		}
-	}
-	
-	/**
-	 * 
-	 * @return
-	 * @throws Exception
-	 */
-	public List<User> findAllUserAccounts() throws Exception{
-		try{
-			List<User> userAccountList = userDaoImpl.findAllUserAccounts();
-			System.out.println("Service Completed: "+userAccountList.size()+" accounts retrieved");
-			return userAccountList;
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
@@ -58,13 +37,28 @@ public class UserService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<User> findAllAdmins() throws Exception{
-		try{
-			List<User> userAccountList = userDaoImpl.findAllAdmins();
-			System.out.println("Service Completed: "+userAccountList.size()+" accounts retrieved");
+	public List<User> findAllUserAccounts() throws Exception {
+		try {
+			List<User> userAccountList = userDaoImpl.findAllUserAccounts();
+			System.out.println("Service Completed: " + userAccountList.size() + " accounts retrieved");
 			return userAccountList;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
 		}
-		catch(Exception e){
+	}
+
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public List<User> findAllAdmins() throws Exception {
+		try {
+			List<User> userAccountList = userDaoImpl.findAllAdmins();
+			System.out.println("Service Completed: " + userAccountList.size() + " accounts retrieved");
+			return userAccountList;
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
@@ -76,13 +70,12 @@ public class UserService {
 	 * @return
 	 * @throws Exception
 	 */
-	public User getSpecificUserAccount(String emailID) throws Exception{
-		try{
+	public User getSpecificUserAccount(String emailID) throws Exception {
+		try {
 			User u = userDaoImpl.getUser(emailID);
-			System.out.println("Service Completed: "+u.getEmailId()+" Name: "+u.getFirstName()+" retreived");
+			System.out.println("Service Completed: " + u.getEmailId() + " Name: " + u.getFirstName() + " retreived");
 			return u;
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
