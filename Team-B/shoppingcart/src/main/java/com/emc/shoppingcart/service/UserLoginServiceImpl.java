@@ -9,7 +9,7 @@ import com.emc.shopping.model.User;
 import com.emc.shopping.model.UserLogin;
 import com.emc.shoppingcart.repository.UserSignupDao;
 //@Component
-@Service(value = "userLogin")
+@Service(value = "userLoginService")
 public class UserLoginServiceImpl implements UserLoginService{
 	
 	@Autowired

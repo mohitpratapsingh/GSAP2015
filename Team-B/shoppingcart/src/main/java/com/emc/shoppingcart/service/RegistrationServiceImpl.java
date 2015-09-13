@@ -8,7 +8,7 @@ import com.emc.shopping.model.User;
 import com.emc.shoppingcart.repository.UserSignupDao;
 
 //@Component
-@Service(value = "registerService")
+@Service(value = "registrationService")
 public class RegistrationServiceImpl implements RegistrationService {
 	
 	@Autowired

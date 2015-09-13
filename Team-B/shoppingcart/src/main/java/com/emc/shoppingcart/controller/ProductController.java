@@ -41,7 +41,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	ProductService productService;
 
 	@Autowired
-	UserService listuser;
+	UserService userService;
 	
 	
 	//OLD WAY OF DOING THINGS BUT CORRECT CODE
@@ -132,8 +132,8 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			}
 			System.out.println("Email:"+request.getParameter("session"));
 			String emailId=request.getParameter("session");
-			User user1=listuser.getSpecificUserAccount(emailId);
-			model.addAttribute("Name", listuser.findNameByEmailId(user1.getEmailId()));
+			User user1=userService.getSpecificUserAccount(emailId);
+			model.addAttribute("Name", userService.findNameByEmailId(user1.getEmailId()));
 			
 			 List<Products> allProduct = new ArrayList<Products>();
 			 allProduct=productService.findAllProducts();
@@ -141,12 +141,12 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			 
 	
 			 List<User> alluser = new ArrayList<User>();
-			 alluser=listuser.findAllUserAccounts();
+			 alluser=userService.findAllUserAccounts();
 			 model.addAttribute("UserList", alluser);
 			
 			
 			 List<User> alladmin = new ArrayList<User>();
-			 alladmin=listuser.findAllAdmins();
+			 alladmin=userService.findAllAdmins();
 			 model.addAttribute("AdminList", alladmin);
 	        
 			return "AdminLanding";
@@ -192,8 +192,8 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			*/
 			System.out.println("Email:"+request.getParameter("session"));
 			String emailId=request.getParameter("session");
-			User user1=listuser.getSpecificUserAccount(emailId);
-			model.addAttribute("Name", listuser.findNameByEmailId(user1.getEmailId()));
+			User user1=userService.getSpecificUserAccount(emailId);
+			model.addAttribute("Name", userService.findNameByEmailId(user1.getEmailId()));
 			
 			 allProduct = new ArrayList<Products>();
 			 allProduct=productService.findAllProducts();
@@ -201,12 +201,12 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			 
 	
 			 List<User> alluser = new ArrayList<User>();
-			 alluser=listuser.findAllUserAccounts();
+			 alluser=userService.findAllUserAccounts();
 			 model.addAttribute("UserList", alluser);
 			
 			
 			 List<User> alladmin = new ArrayList<User>();
-			 alladmin=listuser.findAllAdmins();
+			 alladmin=userService.findAllAdmins();
 			 model.addAttribute("AdminList", alladmin);
 	        
 			return "AdminLanding";

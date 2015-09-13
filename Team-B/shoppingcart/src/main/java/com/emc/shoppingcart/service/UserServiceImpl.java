@@ -11,7 +11,7 @@ import com.emc.shopping.model.User;
 import com.emc.shoppingcart.repository.UserSignupDao;
 
 //@Component
-@Service(value = "listuser")
+@Service(value = "userService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

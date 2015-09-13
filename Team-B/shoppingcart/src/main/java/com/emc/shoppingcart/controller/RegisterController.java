@@ -28,15 +28,14 @@ import com.emc.shoppingcart.service.UserService;
 public class RegisterController {
 	
 	@Autowired
-	RegistrationService registerService;
+	RegistrationService registrationService;
 	@Autowired
-	UserLoginService userLogin;
+	UserLoginService userLoginService;
 	@Autowired
-	UserService listuser;
+	UserService userService;
 	@Autowired
-	ProductService product1;
-	@Autowired
-	UserService user4;
+	ProductService productService;
+	
 	
 	
 	
@@ -79,7 +78,7 @@ public class RegisterController {
 	     } 
 	        //  registration logic here...
 		 try{
-	    	registerService.saveUserdetails(user);
+	    	registrationService.saveUserdetails(user);
 	         
 	        // for testing purpose:
 	        System.out.println("firstname: " + user.getFirstName());
@@ -87,9 +86,9 @@ public class RegisterController {
 	        System.out.println("password: " + user.getPassword());
 	        System.out.println("email: " + user.getEmailId());
 	        System.out.println("email: " + user.getAddress());  
-	        model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
+	        model.addAttribute("Name", userService.findNameByEmailId(user.getEmailId()));
 			List<Products> allProduct = new ArrayList<Products>();
-			allProduct=product1.findAllProducts();
+			allProduct=productService.findAllProducts();
 			model.addAttribute("Productlist", allProduct); 
 			
 	        return "UserLanding";
@@ -109,7 +108,7 @@ public class RegisterController {
 	        try{
 	        //  registration logic here...
 	    		System.out.println("reaching the function");
-	    		registerService.saveAdmin(user);
+	    		registrationService.saveAdmin(user);
 	    		if(result2.hasErrors())
 		        {
 		        	return "AdminRegister";
@@ -124,21 +123,21 @@ public class RegisterController {
 	       */
 	    		System.out.println("Email:"+request.getParameter("session"));
 				String emailId=request.getParameter("session");
-				User user1=listuser.getSpecificUserAccount(emailId);
-				model.addAttribute("Name", listuser.findNameByEmailId(user1.getEmailId()));
+				User user1=userService.getSpecificUserAccount(emailId);
+				model.addAttribute("Name", userService.findNameByEmailId(user1.getEmailId()));
 				
 				 List<Products> allProduct = new ArrayList<Products>();
-				 allProduct=product1.findAllProducts();
+				 allProduct=productService.findAllProducts();
 				 model.addAttribute("Productlist", allProduct); 
 				 
 		
 				 List<User> alluser = new ArrayList<User>();
-				 alluser=listuser.findAllUserAccounts();
+				 alluser=userService.findAllUserAccounts();
 				 model.addAttribute("UserList", alluser);
 				
 				
 				 List<User> alladmin = new ArrayList<User>();
-				 alladmin=listuser.findAllAdmins();
+				 alladmin=userService.findAllAdmins();
 				 model.addAttribute("AdminList", alladmin);
 		        
 	    		return "AdminLanding";

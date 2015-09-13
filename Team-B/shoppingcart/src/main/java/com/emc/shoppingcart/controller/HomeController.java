@@ -46,13 +46,12 @@ public class HomeController {
 	 */
 	
 	@Autowired
-	UserLoginService userLogin;
+	UserLoginService userLoginService;
 	@Autowired
-	UserService listuser;
+	UserService userService;
 	@Autowired
-	ProductService product1;
-	@Autowired
-	UserService user4;
+	ProductService productService;
+	
 	
 	
 	/**
@@ -109,34 +108,34 @@ public class HomeController {
 		
 				String str;
 				
-					str = userLogin.userExists(user.getEmailId(),user.getPassword());
+					str = userLoginService.userExists(user.getEmailId(),user.getPassword());
 					session=request.getSession();
 					session.setAttribute("emailId",user.getEmailId());
 					
 					if(str.equals("admin")){
 						
-						model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
+						model.addAttribute("Name", userService.findNameByEmailId(user.getEmailId()));
 						
 						 List<Products> allProduct = new ArrayList<Products>();
-						 allProduct=product1.findAllProducts();
+						 allProduct=productService.findAllProducts();
 						 model.addAttribute("Productlist", allProduct); 
 						 
 				
 						 List<User> alluser = new ArrayList<User>();
-						 alluser=listuser.findAllUserAccounts();
+						 alluser=userService.findAllUserAccounts();
 						 model.addAttribute("UserList", alluser);
 						
 						
 						 List<User> alladmin = new ArrayList<User>();
-						 alladmin=listuser.findAllAdmins();
+						 alladmin=userService.findAllAdmins();
 						 model.addAttribute("AdminList", alladmin);
 						 return "AdminLanding";
 					}	
 						else if(str.equals("user"))
 						{
-							model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
+							model.addAttribute("Name", userService.findNameByEmailId(user.getEmailId()));
 							List<Products> allProduct = new ArrayList<Products>();
-							allProduct=product1.findAllProducts();
+							allProduct=productService.findAllProducts();
 							model.addAttribute("Productlist", allProduct); 
 							return "UserLanding";
 						}
@@ -167,21 +166,21 @@ public class HomeController {
 		try{	
 			System.out.println("Email:"+request.getParameter("session"));
 			String emailId=request.getParameter("session");
-			User user=listuser.getSpecificUserAccount(emailId);
-			model.addAttribute("Name", listuser.findNameByEmailId(user.getEmailId()));
+			User user=userService.getSpecificUserAccount(emailId);
+			model.addAttribute("Name", userService.findNameByEmailId(user.getEmailId()));
 			
 			 List<Products> allProduct = new ArrayList<Products>();
-			 allProduct=product1.findAllProducts();
+			 allProduct=productService.findAllProducts();
 			 model.addAttribute("Productlist", allProduct); 
 			 
 	
 			 List<User> alluser = new ArrayList<User>();
-			 alluser=listuser.findAllUserAccounts();
+			 alluser=userService.findAllUserAccounts();
 			 model.addAttribute("UserList", alluser);
 			
 			
 			 List<User> alladmin = new ArrayList<User>();
-			 alladmin=listuser.findAllAdmins();
+			 alladmin=userService.findAllAdmins();
 			 model.addAttribute("AdminList", alladmin);
 			 return "AdminLanding";
 	}
