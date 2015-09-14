@@ -1,5 +1,4 @@
-	package com.emc.shoppingcart;
-
+package com.emc.shoppingcart;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +36,11 @@ import com.emc.shoppingcart.service.UserService;
 public class HomeController {
 	public static HttpSession session;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	
+
 	@Autowired
 	UserLoginService userLogin;
 	@Autowired
@@ -51,10 +50,10 @@ public class HomeController {
 	@Autowired
 	ProductService product1;
 	@Autowired
-	UserSignupDaoImpl user3,user4;
+	UserSignupDaoImpl user3, user4;
 	@Autowired
 	ProductService product2;
-	
+
 	/**
 	 * 
 	 * @param locale
@@ -63,99 +62,78 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		try{
-			logger.info("Welcome home! The client locale is {}.", locale);				
-			UserLogin user=new UserLogin();
+		try {
+			logger.info("Welcome home! The client locale is {}.", locale);
+			UserLogin user = new UserLogin();
 			model.addAttribute("loginForm", user);
-			
-			/*List<Products> allProduct = new ArrayList<Products>();
-			 allProduct=product1.findAllProducts();
-			 for (Products prod : allProduct) {
-					System.out.println(prod.getProdName());
-				} 
-			 
-			 List<User> alluser = new ArrayList<User>();
-			 alluser=listuser.findAllUserAccounts();
-			 for (User user4 : alluser) {
-					System.out.println(user4.getFirstName());
-			}
-			 */
-			return "userLogin";			
-		}
-		catch(Exception e){
-			String errormsg="Error in loading login page";
-			model.addAttribute("error",errormsg);
-			return "userLogin";			
-				
+
+			return "userLogin";
+		} catch (Exception e) {
+			String errormsg = "Error in loading login page";
+			model.addAttribute("error", errormsg);
+			return "userLogin";
+
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param user
 	 * @param Result
 	 * @param model
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@RequestMapping(value = "/userLoginSubmit", method = RequestMethod.POST)
-	public String userLogin(@ModelAttribute("loginForm") @Valid UserLogin user,BindingResult Result, Model model,HttpServletRequest request) {
-		if(Result.hasErrors()){
+	public String userLogin(@ModelAttribute("loginForm") @Valid UserLogin user, BindingResult Result, Model model,
+			HttpServletRequest request) {
+		if (Result.hasErrors()) {
 			return "userLogin";
-		}
-		else
-		{	
-			try{
-		
+		} else {
+			try {
+
 				String str;
-				
-					str = userLogin.userExists(user.getEmailId(),user.getPassword());
-					session=request.getSession();
-					session.setAttribute("emailId",user.getEmailId());
-					
-					if(str.equals("admin")){
-						
-						model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
-						
-						 List<Products> allProduct = new ArrayList<Products>();
-						 allProduct=product1.findAllProducts();
-						 model.addAttribute("Productlist", allProduct); 
-						 
-				
-						 List<User> alluser = new ArrayList<User>();
-						 alluser=listuser.findAllUserAccounts();
-						 model.addAttribute("UserList", alluser);
-						
-						
-						 List<User> alladmin = new ArrayList<User>();
-						 alladmin=listuser.findAllAdmins();
-						 model.addAttribute("AdminList", alladmin);
-						 return "AdminLanding";
-					}	
-						else if(str.equals("user"))
-						{
-							model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
-							List<Products> allProduct = new ArrayList<Products>();
-							allProduct=product1.findAllProducts();
-							model.addAttribute("Productlist", allProduct); 
-							return "UserLanding";
-						}
-						else{
-							model.addAttribute("User Doesn't Exist","error");
-							return "userLogin";	
-						}
-			}
-			catch(Exception e){
-				String error="Error in signing in the user";
-				model.addAttribute("error",error);
+
+				str = userLogin.userExists(user.getEmailId(), user.getPassword());
+				session = request.getSession();
+				session.setAttribute("emailId", user.getEmailId());
+
+				if (str.equals("admin")) {
+
+					model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
+
+					List<Products> allProduct = new ArrayList<Products>();
+					allProduct = product1.findAllProducts();
+					model.addAttribute("Productlist", allProduct);
+
+					List<User> alluser = new ArrayList<User>();
+					alluser = listuser.findAllUserAccounts();
+					model.addAttribute("UserList", alluser);
+
+					List<User> alladmin = new ArrayList<User>();
+					alladmin = listuser.findAllAdmins();
+					model.addAttribute("AdminList", alladmin);
+					return "AdminLanding";
+				} else if (str.equals("user")) {
+					model.addAttribute("Name", user4.findNameByEmailId(user.getEmailId()));
+					List<Products> allProduct = new ArrayList<Products>();
+					allProduct = product1.findAllProducts();
+					model.addAttribute("Productlist", allProduct);
+					return "UserLanding";
+				} else {
+					model.addAttribute("User Doesn't Exist", "error");
+					return "userLogin";
+				}
+			} catch (Exception e) {
+				String error = "Error in signing in the user";
+				model.addAttribute("error", error);
 				return "userLogin";
 			}
-		
+
+		}
+
 	}
-		
-	
-  }
-	
+
 	/**
 	 * 
 	 * @param user
@@ -163,37 +141,33 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping(value = "/adminLanding", method = RequestMethod.POST)
-	public String adminPage(@ModelAttribute("adminList") User user1, Model model,HttpServletRequest request) {
-		try{	
-			System.out.println("Email:"+request.getParameter("session"));
-			String emailId=request.getParameter("session");
-			User user=listuser.getSpecificUserAccount(emailId);
+	public String adminPage(@ModelAttribute("adminList") User user1, Model model, HttpServletRequest request) {
+		try {
+			System.out.println("Email:" + request.getParameter("session"));
+			String emailId = request.getParameter("session");
+			User user = listuser.getSpecificUserAccount(emailId);
 			model.addAttribute("Name", listuser.findNameByEmailId(user.getEmailId()));
-			
-			 List<Products> allProduct = new ArrayList<Products>();
-			 allProduct=product1.findAllProducts();
-			 model.addAttribute("Productlist", allProduct); 
-			 
-	
-			 List<User> alluser = new ArrayList<User>();
-			 alluser=listuser.findAllUserAccounts();
-			 model.addAttribute("UserList", alluser);
-			
-			
-			 List<User> alladmin = new ArrayList<User>();
-			 alladmin=listuser.findAllAdmins();
-			 model.addAttribute("AdminList", alladmin);
-			 return "AdminLanding";
-	}
-		catch(Exception e){
-			String error="Error in retriving home page for admin user";
-			model.addAttribute("error",error);	
+
+			List<Products> allProduct = new ArrayList<Products>();
+			allProduct = product1.findAllProducts();
+			model.addAttribute("Productlist", allProduct);
+
+			List<User> alluser = new ArrayList<User>();
+			alluser = listuser.findAllUserAccounts();
+			model.addAttribute("UserList", alluser);
+
+			List<User> alladmin = new ArrayList<User>();
+			alladmin = listuser.findAllAdmins();
+			model.addAttribute("AdminList", alladmin);
+			return "AdminLanding";
+		} catch (Exception e) {
+			String error = "Error in retriving home page for admin user";
+			model.addAttribute("error", error);
 			return "AdminLanding";
 		}
-		
-		
+
 	}
-	
+
 	/**
 	 * 
 	 * @param p
@@ -201,65 +175,25 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping(value = "/ProductForm", method = RequestMethod.POST)
-	public String prodPage(@ModelAttribute("prodForm") Products p, Model model) {	
-		Products product=new Products();
+	public String prodPage(@ModelAttribute("prodForm") Products p, Model model) {
+		Products product = new Products();
 		model.addAttribute("prodFormSubmit", product);
 		return "ProductForm";
 	}
-	
+
 	/**
 	 * @author tripaa5
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/createAdmin",method = RequestMethod.GET)
-    public String viewRegistration(Model model) {
-        
-        User adminForm = new User();    
-        System.out.println("Register Admin");
-        model.addAttribute("adminForm",adminForm);
-        return "AdminRegister";
-        			
-    }
- /*
-	
+	@RequestMapping(value = "/createAdmin", method = RequestMethod.GET)
+	public String viewRegistration(Model model) {
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(Locale locale, Model model) {
-		UserLogin user=new UserLogin();
-		model.addAttribute("loginForm", user);
-		return "userLogin";	
-	}
-	
-*/	/*
-	@RequestMapping(value = "/ProductSubmit", method = RequestMethod.POST)
-	public String ProdSubmit(@ModelAttribute("prod") Products p, Model model) {
-		
-		System.out.println("adding product!");
-		System.out.println(p.getProdId());
-		System.out.println(p.getProdName());
-		
-		product2.addProduct(p);
-		System.out.println("added product...");
-		List<User> data=listuser.findAllUserAccounts(); 
-		
-		System.out.println(data.size());
-		for(User u:data){
-			System.out.println(u.getFirstName());
-		}
-		model.addAttribute("data", data);
+		User adminForm = new User();
+		System.out.println("Register Admin");
+		model.addAttribute("adminForm", adminForm);
+		return "AdminRegister";
 
-		//Map<String,Object> data=listuser.users(user.getFirstName(), user.getLastName(),user.getEmailId()); 
-		return "ProductForm";
-		return "ProductForm";
-				
 	}
-*/	
-	
-	
+
 }
-	
-	
-	
-
-
