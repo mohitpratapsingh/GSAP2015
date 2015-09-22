@@ -2,31 +2,61 @@ package com.emc.shoppingcart.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+@Entity
+@Table(name="user")
 public class User implements Serializable {
-
+	@Id @GeneratedValue
+	@Column(name = "u_id", nullable = false)
 	private long uId;
+	
+	@Column(name = "gender", nullable = true)
 	private String gender;
+	
+	
 	@Size(min = 2, max = 30)
+	@Column(name = "user_fname", nullable = true, length = 30 )
 	private String userFname;
+	
 	@Size(min = 2, max = 30)
+	@Column(name = "user_lname", nullable = true, length = 30 )
 	private String userLname;
+	
 	@NotEmpty
 	@Email
+	@Column(name = "email_id", nullable = false, length = 80 )
 	private String emailId;
+	
 	@Size(min = 8, max = 12)
+	@Column(name = "passwrd", nullable = false, length = 12 )
 	private String passwrd;
+	
 	@Size(min = 5, max = 40)
+	@Column(name = "address_line1" , nullable = true, length = 200 )
 	private String addressLine1;
 
+	@Column(name = "address_line2", nullable = true, length = 200 )
 	private String addressLine2;
+	
 	// @Size(min=10,max=10)
+	@Column(name = "phone_number", nullable = true )
 	private Long phoneNumber;
 	// private Roles role;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	private int r_id;
 
 	public User(String gender, String userFname, String userLname, String emailId, String passwrd, String addressLine1,
