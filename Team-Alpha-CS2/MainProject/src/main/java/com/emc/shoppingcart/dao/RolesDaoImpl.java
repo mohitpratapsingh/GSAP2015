@@ -24,8 +24,9 @@ public class RolesDaoImpl implements RolesDao {
 	@Override
 	public Roles getRole(int rId) {
 		try {
-			//String sql = "select * from roles where r_id=?";
-			Roles role = jdbctemplate.queryForObject(getRoleByIdQuery, new Object[] { rId },
+			String sql = "select * from roles where r_id=?";
+			//System.out.println(getRoleByIdQuery);
+			Roles role = jdbctemplate.queryForObject(sql, new Object[] { rId },
 					new BeanPropertyRowMapper<Roles>(Roles.class));
 			return role;
 		} catch (Exception e) {
@@ -36,8 +37,8 @@ public class RolesDaoImpl implements RolesDao {
 
 	@Override
 	public boolean insertRole(Roles role) {
-		//String sql = "insert into roles(r_name) values(?)";
-		jdbctemplate.update(roleInsertQuery, role.getrName());
+		String sql = "insert into roles(r_name) values(?)";
+		jdbctemplate.update(sql, role.getrName());
 		return true;
 	}
 

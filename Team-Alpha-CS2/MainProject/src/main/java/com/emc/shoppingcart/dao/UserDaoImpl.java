@@ -44,8 +44,8 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(String userName) {
 
 		try {
-			//String sql = "select * from user where email_id=?";
-			User user = jdbcTemplate.queryForObject(userGetByUserNameQuery, new Object[] { userName },
+			String sql = "select * from user where email_id=?";
+			User user = jdbcTemplate.queryForObject(sql, new Object[] { userName },
 					new BeanPropertyRowMapper<User>(User.class));
 
 			return user;
@@ -59,8 +59,8 @@ public class UserDaoImpl implements UserDao {
 	public String insertUser(User user) {
 
 		try {
-			//String sql = "insert into user(user_lname,user_fname,email_id,passwrd,address_line1,address_line2,phone_number,gender,r_id) values(?,?,?,?,?,?,?,?,?)";
-			jdbcTemplate.update(userInsertQuery, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(),
+			String sql = "insert into user(user_lname,user_fname,email_id,passwrd,address_line1,address_line2,phone_number,gender,r_id) values(?,?,?,?,?,?,?,?,?)";
+			jdbcTemplate.update(sql, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(),
 					user.getAddressLine1(), user.getAddressLine2(), user.getPhoneNumber(), user.getGender(), 0);
 
 			return "USER_ADDED_SUCCESSFULLY";
@@ -76,8 +76,8 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public String deleteUser(String userName) {
 		try {
-			//String sql = "delete from user where email_id=?";
-			jdbcTemplate.update(userDeleteQuery, userName);
+			String sql = "delete from user where email_id=?";
+			jdbcTemplate.update(sql, userName);
 			return "USER_DELETED_SUCCESSFULLY";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,8 +90,8 @@ public class UserDaoImpl implements UserDao {
 	public String updateuser(User user) {
 
 		try {
-			//String sql = "update user set user_lname=?,user_fname=?,email_id=?,passwrd=?,address_line1=?,address_line2=?,phone_number=?,gender=? where u_id=?";
-			jdbcTemplate.update(userUpdateQuery, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(),
+			String sql = "update user set user_lname=?,user_fname=?,email_id=?,passwrd=?,address_line1=?,address_line2=?,phone_number=?,gender=? where u_id=?";
+			jdbcTemplate.update(sql, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(),
 					user.getAddressLine1(), user.getAddressLine2(), user.getPhoneNumber(), user.getGender(),
 					user.getuId());
 			return "USER_UPDATED_SUCCESSFULLY";
@@ -106,8 +106,8 @@ public class UserDaoImpl implements UserDao {
 	public List<User> getAllUsers() {
 
 		try {
-			//String sql = "select * from user";
-			List<User> userList = jdbcTemplate.query(allUserGetQuery, new BeanPropertyRowMapper<User>(User.class));
+			String sql = "select * from user";
+			List<User> userList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<User>(User.class));
 			return userList;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,9 +119,9 @@ public class UserDaoImpl implements UserDao {
 	public List<User> getUsersByRoleId(int rId) {
 
 		try {
-			//String sql = "select * from user where r_id=?";
+			String sql = "select * from user where r_id=?";
 			List<User> userListByRole;
-			userListByRole = jdbcTemplate.query(userGetByRoleQuery, new Object[] { rId }, new BeanPropertyRowMapper<User>(User.class));
+			userListByRole = jdbcTemplate.query(sql, new Object[] { rId }, new BeanPropertyRowMapper<User>(User.class));
 
 			return userListByRole;
 		} catch (Exception e) {
@@ -133,8 +133,8 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public String insertAdmin(User user) {
 		try {
-			//String sql = "insert into user(user_lname,user_fname,email_id,passwrd,r_id) values(?,?,?,?,?)";
-			jdbcTemplate.update(userInsertAdminQuery, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(), 1);
+			String sql = "insert into user(user_lname,user_fname,email_id,passwrd,r_id) values(?,?,?,?,?)";
+			jdbcTemplate.update(sql, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(), 1);
 			return "ADMIN_ADDED_SUCCESSFULLY";
 		} catch (Exception e) {
 			e.printStackTrace();

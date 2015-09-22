@@ -47,6 +47,7 @@ public class ShoppingController {
 		stateList.add("orissa");
 		stateList.add("punjab");
 		stateList.add("goa");
+		stateList.add("Uttar Pradesh");
 		model.addAttribute("registerForm", user);
 		model.addAttribute("stateList", stateList);
 		session.setAttribute("stateList", stateList);

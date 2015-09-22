@@ -44,8 +44,8 @@ public class ProductDaoImpl implements ProductDao {
 	public String addProduct(Product product) {
 
 		try {
-			//String sql = "insert into product(p_name,price,category,image_name)values(?,?,?,?) ";
-			jdbcTemplate.update(productInsertQuery, product.getpName(), product.getPrice(), product.getCategory(),
+			String sql = "insert into product(p_name,price,category,image_name)values(?,?,?,?) ";
+			jdbcTemplate.update(sql, product.getpName(), product.getPrice(), product.getCategory(),
 					product.getImageName());
 			return "PRODUCT_ADDED_SUCCESSFULLY";
 		} catch (Exception e) {
@@ -58,8 +58,8 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public List<Product> getProducts() {
 		try {
-			//String sql = "select * from product";
-			List<Product> productList = jdbcTemplate.query(allProductsGetQuery, new BeanPropertyRowMapper<Product>(Product.class));
+			String sql = "select * from product";
+			List<Product> productList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Product>(Product.class));
 			return productList;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,8 +72,8 @@ public class ProductDaoImpl implements ProductDao {
 	public String deleteProduct(long productId) {
 
 		try {
-			//String sql = "delete from product where p_id=?";
-			jdbcTemplate.update(productDeleteQuery, productId);
+			String sql = "delete from product where p_id=?";
+			jdbcTemplate.update(sql, productId);
 			return "PRODUCT_DELETED_SUCCESSFULLY";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,8 +87,8 @@ public class ProductDaoImpl implements ProductDao {
 	public String updateProduct(Product product) {
 
 		try {
-			//String sql = "update product set p_name=?,price=?,category=?,image_name=? where p_id=?";
-			jdbcTemplate.update(productUpdateQuery, product.getpName(), product.getPrice(), product.getCategory(),
+			String sql = "update product set p_name=?,price=?,category=?,image_name=? where p_id=?";
+			jdbcTemplate.update(sql, product.getpName(), product.getPrice(), product.getCategory(),
 					product.getImageName(), product.getpId());
 			return "PRODUCT_UPDATED_SUCCESSFULLY";
 		} catch (Exception e) {
@@ -101,8 +101,8 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public Product getProductById(int productId) {
 		try {
-			//String sql = "select * from product where p_id=?";
-			Product product = jdbcTemplate.queryForObject(getProductByIdQuery, new Object[] { productId },
+			String sql = "select * from product where p_id=?";
+			Product product = jdbcTemplate.queryForObject(sql, new Object[] { productId },
 					new BeanPropertyRowMapper<Product>(Product.class));
 			return product;
 		} catch (Exception e) {
