@@ -1651,3 +1651,11 @@ org.eclipse.core.runtime.CoreException: Launch configuration UserTest references
 2015-09-22 09:29:20,982 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
 2015-09-22 09:29:20,992 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-09-22 09:29:20,994 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-09-22 09:58:48,297 [Worker-29] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.emc:shoppingcart:1.0.0-BUILD-SNAPSHOT @ C:\Users\kalraa2\Documents\GSAP2015\Team-Alpha-CS2\MainProject\pom.xml.
+2015-09-22 09:58:50,084 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-09-22 09:58:50,086 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-09-22 09:58:50,089 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-09-22 09:58:50,090 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-09-22 09:58:50,093 [Worker-29] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of shoppingcart
+2015-09-22 09:58:50,094 [Worker-29] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for shoppingcart
+2015-09-22 09:58:50,101 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
