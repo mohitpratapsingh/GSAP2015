@@ -17,7 +17,8 @@ public class Orders {
     @Column ( name = "order_id" )		
 	private int orderId;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
+	@Column ( name = "transaction_id")
 	private long transactionId;
 	
 	@Column (name = "p_id" )
