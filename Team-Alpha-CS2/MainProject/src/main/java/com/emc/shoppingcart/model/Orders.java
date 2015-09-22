@@ -17,7 +17,7 @@ public class Orders {
     @Column ( name = "order_id" )		
 	private int orderId;
 	
-	@Column (name = "transaction_id" )
+	@ManyToOne(cascade=CascadeType.ALL)
 	private long transactionId;
 	
 	@Column (name = "p_id" )
@@ -69,8 +69,7 @@ public class Orders {
 		this.price = price;
 	}
 
-	/*@ManyToOne()
-	Transactions transaction;*/
+	
 	
 
 	public Orders(long transactionId, int pId, int quantity, float price) {
