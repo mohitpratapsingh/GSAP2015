@@ -2,10 +2,15 @@ package com.emc.shoppingcart.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Table;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+
+
 
 public class User implements Serializable {
 
