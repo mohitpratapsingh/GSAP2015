@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page session="false" %>
 <html>
 <head>
@@ -9,6 +10,23 @@
 <h4>
 Welcome ${dataMap.get("user").getUserFname()}
 </h4>
+
+
+<form method="GET" action="productSearch" > 
+<table border="1">
+    <tr>
+ <td><label>Find Your Product By Category</label></td>
+ <td><input type="text" name="category"/></td>
+ <td><input type="submit" value="Search"/></td>
+</tr>
+</table>
+</form>
+
+
+<!-- 
+<input type="text">
+ --><br>
+<br>
 <table border="1">
 <thead>
  <th colspan=4>Product List</th>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -108,6 +109,13 @@ public class ProductController {
 			return "adminHome";
 		else
 			return "superAdminHome";
+	}
+	
+	@RequestMapping(value="/productSearch", method=RequestMethod.GET)
+	public String productSearchClick(@RequestParam("category") String category , Model model, HttpSession session){
+		System.out.println(category);
+		
+		return "userHome";
 	}
 
 }

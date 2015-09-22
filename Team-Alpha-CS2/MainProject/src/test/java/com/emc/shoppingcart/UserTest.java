@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.emc.shoppingcart.dao.RolesDao;
+import com.emc.shoppingcart.dao.RolesDaoImpl;
+import com.emc.shoppingcart.model.Roles;
 import com.emc.shoppingcart.model.User;
 import com.emc.shoppingcart.services.UserService;
 
@@ -25,7 +28,10 @@ public class UserTest {
 	@Autowired
 	UserService userService;
 	
-	@Test
+	@Autowired
+	RolesDao rolesDao;
+	
+	/*@Test
 	public void testGetUsersByRoleId(){
 		System.out.println("test");
 		List<User> userlist=userService.getUsersByRoleId(0);
@@ -34,6 +40,8 @@ public class UserTest {
 		}
 		assertFalse(userlist.isEmpty());
 	}
+	
+	
 	
 	@Test
 	public void UserLogin(){
@@ -90,6 +98,15 @@ public class UserTest {
 		String response = userService.insertAdmin(user);
 		System.out.println(response);
 		assertNotNull(response);
+	}*/
+	
+	@Test
+	public void getRoleNameById(){
+		
+		Roles roleName=rolesDao.getRole(0);
+		
+		System.out.println(roleName.getrName());
+		System.out.println("Getting name of role by id");
 	}
 	
 	

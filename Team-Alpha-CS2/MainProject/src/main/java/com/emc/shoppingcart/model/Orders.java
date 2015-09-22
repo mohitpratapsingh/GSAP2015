@@ -1,0 +1,87 @@
+package com.emc.shoppingcart.model;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table( name = "orders" )
+public class Orders {
+	
+	@Id
+	@GeneratedValue
+    @Column ( name = "order_id" )		
+	private int orderId;
+	
+	@ManyToOne()
+	@Column ( name = "transaction_id")
+	private long transactionId;
+	
+	@Column (name = "p_id" )
+	private int pId;
+	
+	@Column (name = "quantity" )
+	private int quantity;
+	
+	@Column (name = "price" )
+	private float price;
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public long getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(long transactionId) {
+		this.transactionId = transactionId;
+	}
+
+	public int getpId() {
+		return pId;
+	}
+
+	public void setpId(int pId) {
+		this.pId = pId;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	
+	
+
+	public Orders(long transactionId, int pId, int quantity, float price) {
+		super();
+		this.transactionId = transactionId;
+		this.pId = pId;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
+	
+	
+
+}
