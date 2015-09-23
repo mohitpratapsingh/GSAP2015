@@ -3,11 +3,15 @@ package com.emc.shoppingcart.model;
 import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private long pId;
 	@NotEmpty
 	private String pName;
