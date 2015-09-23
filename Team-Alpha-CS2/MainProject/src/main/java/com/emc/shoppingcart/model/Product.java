@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class Product implements Serializable {
@@ -12,34 +13,48 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private long pId;
+	private long id;
 	@NotEmpty
+	@Field(value = "name")
 	private String pName;
 	@NotEmpty
-	private Float price;
-	@NotEmpty
+	@Field(value = "category")
 	private String category;
 	@NotEmpty
-	private String imageName;
+	@Field(value = "price")
+	private Float price;
+	@NotEmpty
+	@Field(value = "brand")
+	private String brand;
+	@NotEmpty
+	@Field(value = "quantity")
+	private int quantity;
+	@NotEmpty
+	@Field(value = "description")
+	private String description;
+	
+	public Product(long id, String pName, String category, Float price, String brand, int quantity,
+			String description) {
+		super();
+		this.id = id;
+		this.pName = pName;
+		this.category = category;
+		this.price = price;
+		this.brand = brand;
+		this.quantity = quantity;
+		this.description = description;
+	}
 
 	public Product() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
-	public Product(String pName, Float price, String category, String imageName) {
-
-		this.pName = pName;
-		this.price = price;
-		this.category = category;
-		this.imageName = imageName;
+	public long getId() {
+		return id;
 	}
 
-	public long getpId() {
-		return pId;
-	}
-
-	public void setpId(long pId) {
-		this.pId = pId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getpName() {
@@ -50,14 +65,6 @@ public class Product implements Serializable {
 		this.pName = pName;
 	}
 
-	public Float getPrice() {
-		return price;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
-	}
-
 	public String getCategory() {
 		return category;
 	}
@@ -66,12 +73,39 @@ public class Product implements Serializable {
 		this.category = category;
 	}
 
-	public String getImageName() {
-		return imageName;
+	public Float getPrice() {
+		return price;
 	}
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
+
+	
 }
