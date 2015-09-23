@@ -17,13 +17,13 @@ public class Transactions {
 	@Column(name="user_id ")
 	private long userId;
 	@Column(name="time_stamp")
-	private long timeStamp;
+	private String timeStamp;
 	@Column(name="status")
-	private long status;
+	private String status;
 	@Column(name="total_amount")
 	private long totalAmount;
 	
-	public Transactions(long userId, long timeStamp, long status, long totalAmount) {
+	public Transactions(long userId, String timeStamp, String status, long totalAmount) {
 		super();
 		this.userId = userId;
 		this.timeStamp = timeStamp;
@@ -43,16 +43,16 @@ public class Transactions {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public long getTimeStamp() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
-	public void setTimeStamp(long timeStamp) {
+	public void setTimeStamp(String timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-	public long getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(long status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public long getTotalAmount() {
