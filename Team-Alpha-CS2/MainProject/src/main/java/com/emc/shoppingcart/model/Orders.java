@@ -5,8 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table( name = "orders" )
@@ -17,9 +19,9 @@ public class Orders {
     @Column ( name = "order_id" )		
 	private int orderId;
 	
-	@ManyToOne()
-	@Column ( name = "transaction_id")
-	private long transactionId;
+	@ManyToOne
+	@JoinColumn ( name = "transaction_id")
+	private Transactions transaction;
 	
 	@Column (name = "p_id" )
 	private int pId;
@@ -38,13 +40,6 @@ public class Orders {
 		this.orderId = orderId;
 	}
 
-	public long getTransactionId() {
-		return transactionId;
-	}
-
-	public void setTransactionId(long transactionId) {
-		this.transactionId = transactionId;
-	}
 
 	public int getpId() {
 		return pId;
@@ -69,19 +64,28 @@ public class Orders {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
 	
-	
+	public Transactions getTransactionId() {
+		return transaction;
+	}
 
-	public Orders(long transactionId, int pId, int quantity, float price) {
+	public void setTransactionId(Transactions transaction) {
+		this.transaction = transaction;
+	}
+
+	public Orders() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Orders(Transactions transaction, int pId, int quantity, float price) {
 		super();
-		this.transactionId = transactionId;
+		this.transaction = transaction;
 		this.pId = pId;
 		this.quantity = quantity;
 		this.price = price;
 	}
-
 	
+
 	
 
 }

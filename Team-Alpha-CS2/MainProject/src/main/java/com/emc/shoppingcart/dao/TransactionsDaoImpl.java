@@ -2,6 +2,9 @@ package com.emc.shoppingcart.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.emc.shoppingcart.model.Transactions;
@@ -15,10 +18,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 */
 
-@Repository("transactionDao")
-public class TransactionsDaoImpl extends TransactionHibernateDaoSupport implements TransactionDao {
-
-	@Override
+@Repository
+public class TransactionsDaoImpl  implements TransactionDao {
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	
+/*	@Override
 	public void save(Transactions transaction) {
 		// TODO Auto-generated method stub
 		
@@ -39,13 +45,13 @@ public class TransactionsDaoImpl extends TransactionHibernateDaoSupport implemen
 		// TODO Auto-generated method stub
 		getHibernateTemplate().delete(transaction);
 		
-	}
+	}*/
 
 	@Override
-	public Transactions retrieveById(int id) {
+	public Transactions retrieveById(Long id) {
 		// TODO Auto-generated method stub
-		
-		Transactions t=getHibernateTemplate().get(Transactions.class, id);
+		Session session=sessionFactory.openSession();
+		Transactions t=(Transactions) session.get(Transactions.class,id);
 		
 		return t;
 	}

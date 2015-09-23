@@ -23,6 +23,10 @@ public class Transactions {
 	@Column(name="total_amount")
 	private long totalAmount;
 	
+	public Transactions() {
+		
+	}
+	
 	public Transactions(long userId, String timeStamp, String status, long totalAmount) {
 		super();
 		this.userId = userId;

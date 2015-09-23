@@ -79,7 +79,7 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
-	@Override
+	/*@Override
 	public String transactionExProduct(Product product)  {
 		
 		DefaultTransactionDefinition transactionDefinition= new DefaultTransactionDefinition();		
@@ -97,6 +97,6 @@ public class ProductServiceImpl implements ProductService {
 			return "failed to add product";
 		}
 		
-	}
+	}*/
 
 }

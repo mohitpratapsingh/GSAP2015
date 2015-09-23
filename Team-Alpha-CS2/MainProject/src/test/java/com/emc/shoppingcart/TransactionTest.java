@@ -15,13 +15,12 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.emc.shoppingcart.dao.TransactionDao;
 import com.emc.shoppingcart.model.Transactions;
 
-/*
-@TestExecutionListeners( { DependencyInjectionTestExecutionListener.class })
+
+//@TestExecutionListeners( { DependencyInjectionTestExecutionListener.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml","file:src/main/webapp/WEB-INF/spring/root-context.xml"})
-*/
-  
 
+ 
  public class TransactionTest {
 	
 	 @Autowired
@@ -30,10 +29,12 @@ import com.emc.shoppingcart.model.Transactions;
 	
 	@Test
 	public void testEntitySave() {
-		 Transactions t=new Transactions(2,"30-05-2015" , "placed", 1200);
+		 Transactions tobj=new Transactions(2,"30-05-2015" , "placed", 1200);
 		 
 			System.out.println("Testing....");
-			t1.save(t);
+			Transactions trans=t1.retrieveById(1234L);
+			System.out.println(trans.getTotalAmount());
+			//t1.save(t);
 			
 		}
 

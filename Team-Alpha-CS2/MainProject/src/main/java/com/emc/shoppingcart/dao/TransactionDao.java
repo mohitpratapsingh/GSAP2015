@@ -7,10 +7,10 @@ import com.emc.shoppingcart.model.Transactions;
 public interface TransactionDao {
 	
 	
-	void save(Transactions transaction);
+/*	void save(Transactions transaction);
 	void update(Transactions transaction);
-	void delete(Transactions transaction);
-	Transactions retrieveById(int id);
+	void delete(Transactions transaction);*/
+	Transactions retrieveById(Long id);
 
 
 	

@@ -33,11 +33,39 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring-framework.version}</version>
-		</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>4.2.1.RELEASE</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>4.2.1.RELEASE</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>4.2.1.RELEASE</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jms</artifactId>
+		<version>3.0.4.RELEASE</version>
+	</dependency>
+
+	<!-- Hibernate -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	
+
 
 		<!-- Logging with SLF4J & LogBack -->
 		<dependency>
@@ -59,20 +87,6 @@
 		<version>1.4</version>
 	</dependency>
 
-		<!-- Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-
-
-		<dependency>
-		     <groupId>org.springframework</groupId>
-		     <artifactId>spring-orm</artifactId>
-		     <version>4.2.1.RELEASE</version>
-		</dependency>
-
 
 	<dependency>
 		<groupId>mysql</groupId>
@@ -80,18 +94,6 @@
 		<version>5.1.6</version>
 	</dependency>
 
-
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-tx</artifactId>
-		<version>4.2.1.RELEASE</version>
-	</dependency>
-
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-context-support</artifactId>
-		<version>4.2.1.RELEASE</version>
-	</dependency>
 	
 	<dependency>
 	<groupId>org.quartz-scheduler</groupId>
@@ -99,12 +101,6 @@
 	<version>2.2.0</version>
 </dependency>
 
-
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-jms</artifactId>
-		<version>3.0.4.RELEASE</version>
-	</dependency>
 
 	<dependency>
 		<groupId>org.apache.activemq</groupId>
