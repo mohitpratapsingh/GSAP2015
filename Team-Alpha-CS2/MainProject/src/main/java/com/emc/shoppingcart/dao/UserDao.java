@@ -3,6 +3,8 @@ package com.emc.shoppingcart.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.emc.shoppingcart.model.User;
 
 public interface UserDao {
