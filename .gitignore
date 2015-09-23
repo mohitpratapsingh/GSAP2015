@@ -2,7 +2,6 @@
 .metadata/.plugins/org.eclipse.core.resources/.history/ec/4096bb2ede6000151daba6deada7b28d
 *.snap
 .metadata/.plugins/org.eclipse.core.resources/.projects/shoppingcart/.indexes/properties.index
-*.properties
 .metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.egit.core.prefs
 .metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs
 .metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs
@@ -76,3 +75,11 @@ Servers/Tomcat v8.0 Server at localhost-config/server.xml
 *.txt
 *.log
 *.xmi
+.metadata/.plugins/org.springsource.ide.eclipse.dashboard.ui/feeds/dashboard.feeds.blogs/-549550714.xml
+.metadata/.plugins/org.eclipse.wst.jsdt.web.core/jssearch/3281123506.index
+.metadata/.plugins/org.eclipse.m2e.core/nexus/8ba0f71c6d6fff3fb44e228ec951305f/segments_x
+.metadata/.plugins/org.eclipse.core.resources/.projects/shoppingcart/.indexes/e4/b9/b3/a8/6e/history.index
+.metadata/.plugins/org.eclipse.core.resources/.history/d9/60d73124b16100151daba6deada7b28d
+.metadata/.plugins/org.eclipse.core.resources/.history/63/20ffac17b06100151daba6deada7b28d
+.metadata/.plugins/org.eclipse.core.resources/.history/38/302be53ba96100151daba6deada7b28d
+.metadata/.plugins/org.springsource.ide.eclipse.dashboard.ui/feeds/dashboard.feeds.blogs/-549550714.xml
