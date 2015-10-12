@@ -31,6 +31,13 @@ public class UserTest {
 	@Autowired
 	RolesDao rolesDao;
 	
+	@Test
+	public void testLogin(){
+		Map<String, Object> dataMap=userService.userLogin("test","root");
+		User user=(User) dataMap.get("user");
+		System.out.println(user.getUserFname()+user.getUserLname());
+	}
+	
 	/*@Test
 	public void testGetUsersByRoleId(){
 		System.out.println("test");
@@ -100,14 +107,14 @@ public class UserTest {
 		assertNotNull(response);
 	}*/
 	
-	@Test
+	/*@Test
 	public void getRoleNameById(){
 		
 		Roles roleName=rolesDao.getRole(0);
 		
 		System.out.println(roleName.getrName());
 		System.out.println("Getting name of role by id");
-	}
+	}*/
 	
 	
 }

@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
 			if (passwrd.equals(user.getPasswrd())) {
 
-				Roles role = rolesDao.getRole(user.getR_id());
+				Roles role = user.getRole();
 
 				if (role.getrName().equals("super_admin")) {
 

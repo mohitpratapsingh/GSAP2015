@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -17,7 +18,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-//@Entity
+@Entity
 @Table(name="user")
 public class User implements Serializable {
 	@Id @GeneratedValue
@@ -26,7 +27,6 @@ public class User implements Serializable {
 	
 	@Column(name = "gender", nullable = true)
 	private String gender;
-	
 	
 	@Size(min = 2, max = 30)
 	@Column(name = "user_fname", nullable = true, length = 30 )
@@ -37,7 +37,7 @@ public class User implements Serializable {
 	private String userLname;
 	
 	@NotEmpty
-	@Email
+	//@Email
 	@Column(name = "email_id", nullable = false, length = 80 )
 	private String emailId;
 	
@@ -55,10 +55,11 @@ public class User implements Serializable {
 	// @Size(min=10,max=10)
 	@Column(name = "phone_number", nullable = true )
 	private Long phoneNumber;
-	// private Roles role;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private int r_id;
+	
+	@ManyToOne
+	@JoinColumn ( name = "r_id")
+	private Roles role;
 
 	public User(String gender, String userFname, String userLname, String emailId, String passwrd, String addressLine1,
 			String addressLine2, Long phoneNumber) {
@@ -74,12 +75,12 @@ public class User implements Serializable {
 
 	}
 
-	public int getR_id() {
-		return r_id;
+	public Roles getRole() {
+		return role;
 	}
 
-	public void setR_id(int r_id) {
-		this.r_id = r_id;
+	public void setRole(Roles role) {
+		this.role= role;
 	}
 
 	public User() {
@@ -150,11 +151,6 @@ public class User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	/*
-	 * public Roles getRole() { return role; }
-	 * 
-	 * public void setRole(Roles role) { this.role = role; }
-	 */
 
 	public String getGender() {
 		return gender;

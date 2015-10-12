@@ -14,9 +14,9 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-	
+
 		<!-- Spring -->
-				
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -29,46 +29,46 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-context-support</artifactId>
-		<version>4.2.1.RELEASE</version>
-	</dependency>
 
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>${org.springframework-version}</version>
-	</dependency>
-	
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-test</artifactId>
-		<version>4.2.1.RELEASE</version>
-		<scope>test</scope>
-	</dependency>
-		
 		<dependency>
-		     <groupId>org.springframework</groupId>
-		     <artifactId>spring-orm</artifactId>
-		     <version>4.2.1.RELEASE</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>4.2.1.RELEASE</version>
 		</dependency>
 
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-jdbc</artifactId>
-		<version>4.2.1.RELEASE</version>
-	</dependency>
-		
-		<!--Hibernate  -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
-	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-entitymanager</artifactId>
-		<version>4.2.1.Final</version>
-	</dependency>
-		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.2.1.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.2.1.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.2.1.RELEASE</version>
+		</dependency>
+
+		<!--Hibernate -->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.1.Final</version>
+		</dependency>
+
 		<!-- mongodb java driver -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
@@ -76,9 +76,9 @@
 			<version>2.11.0</version>
 		</dependency>
 
-		
-		 
-		 <!-- Spring data mongodb -->
+
+
+		<!-- Spring data mongodb -->
 
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -86,6 +86,19 @@
 			<version>1.2.0.RELEASE</version>
 		</dependency>
 
+
+		<!-- JMS RELATED -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>3.0.4.RELEASE</version>
+		</dependency>
+
+	<dependency>
+		<groupId>org.apache.activemq</groupId>
+		<artifactId>activemq-broker</artifactId>
+		<version>5.11.2</version>
+	</dependency>
 
 		<dependency>
 			<groupId>cglib</groupId>
@@ -103,7 +116,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 		</dependency>
-			
+
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -119,20 +132,17 @@
 
 
 
-<!-- validation related dependency -->	   
-<!-- 	   	<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
-		</dependency> -->		
+		<!-- validation related dependency -->
+		<!-- <dependency> <groupId>javax.validation</groupId> <artifactId>validation-api</artifactId> 
+			<version>1.1.0.Final</version> </dependency> -->
 
 		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>4.2.0.Final</version>
-        </dependency> 
-        
-        
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+
+
 
 		<!-- AspectJ -->
 		<dependency>
@@ -251,4 +261,4 @@
 	</build>
 </project>
 
-<!--  -->
+<!-- -->

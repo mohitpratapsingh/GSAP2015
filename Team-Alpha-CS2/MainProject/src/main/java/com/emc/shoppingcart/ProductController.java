@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.emc.shoppingcart.model.Product;
 import com.emc.shoppingcart.model.User;
 import com.emc.shoppingcart.services.ProductService;
+import com.emc.shoppingcart.services.TransactionService;
 import com.emc.shoppingcart.services.UserService;
 import com.emc.shoppingcart.utils.ConstantsClass;
 
@@ -30,6 +30,9 @@ public class ProductController {
 
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	TransactionService transactionService;
 
 	@RequestMapping(value = "/addProductForm", method = RequestMethod.GET)
 	public String productForm(Model model, HttpSession session) {
@@ -114,6 +117,18 @@ public class ProductController {
 	@RequestMapping(value="/productSearch", method=RequestMethod.GET)
 	public String productSearchClick(@RequestParam("category") String category , Model model, HttpSession session){
 		System.out.println(category);
+		
+		return "userHome";
+	}
+	
+	@RequestMapping(value="/BuyProduct", method=RequestMethod.GET)
+	public String productBuy( Model model, HttpSession session){
+		
+		List<Product> productsList=(List<Product>) session.getAttribute("products");
+		Long totalAmount=(Long) session.getAttribute("totalAmount");
+		User user=(User) session.getAttribute("user");
+
+		transactionService.buyProducts(user, totalAmount, productsList);
 		
 		return "userHome";
 	}

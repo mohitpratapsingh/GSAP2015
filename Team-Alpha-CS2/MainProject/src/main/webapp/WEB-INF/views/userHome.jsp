@@ -22,6 +22,7 @@
 
 
 		<!-- 
+		
 <input type="text">
  -->
 		<br> <br>
@@ -43,7 +44,7 @@
 						<td>${product.price}</td>
 						<td>${product.category}</td>
 						<td>${product.imageName}</td>
-						<td><input type="button" id="" value="Add to cart" disabled />
+						<td><input type="button" id="" value="Add to cart"  />
 
 						</td>
 					</tr>

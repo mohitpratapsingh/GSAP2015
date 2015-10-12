@@ -21,9 +21,10 @@
        <property name="dataSource" ref="dataSource" />
        <property name="packagesToScan" value="com.emc.shoppingcart.model" />
        <property name="hibernateProperties">
-             <value>
-                    hibernate.dialect=org.hibernate.dialect.HSQLDialect
-             </value>
+       			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				</props>
        </property>
 </bean>
 
@@ -59,4 +60,23 @@
 	</bean>
 	
 	<mvc:annotation-driven /> 
+	
+	<!-- activeMQ related dependencies-->
+		<bean id="connectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="tcp://localhost:61616" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestinationName" value="transaction.Queue" />
+		<property name="receiveTimeout" value="1000"></property>
+	</bean>
+	
+	<context:component-scan base-package="com.emc.shoppingcart.com"></context:component-scan>
+	
 </beans>

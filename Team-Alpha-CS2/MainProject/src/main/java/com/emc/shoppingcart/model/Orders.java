@@ -1,5 +1,7 @@
 package com.emc.shoppingcart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "orders" )
-public class Orders {
+public class Orders implements Serializable{
 	
 	@Id
 	@GeneratedValue
@@ -24,28 +26,21 @@ public class Orders {
 	private Transactions transaction;
 	
 	@Column (name = "p_id" )
-	private int pId;
+	private Long pId;
 	
-	@Column (name = "quantity" )
-	private int quantity;
-	
-	@Column (name = "price" )
-	private float price;
-
-	public int getOrderId() {
-		return orderId;
+	public Transactions getTransaction() {
+		return transaction;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setTransaction(Transactions transaction) {
+		this.transaction = transaction;
 	}
 
-
-	public int getpId() {
+	public Long getpId() {
 		return pId;
 	}
 
-	public void setpId(int pId) {
+	public void setpId(Long pId) {
 		this.pId = pId;
 	}
 
@@ -64,28 +59,26 @@ public class Orders {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
-	public Transactions getTransactionId() {
-		return transaction;
-	}
 
-	public void setTransactionId(Transactions transaction) {
-		this.transaction = transaction;
-	}
+	@Column (name = "quantity" )
+	private int quantity;
+	
+	@Column (name = "price" )
+	private float price;
+
+	
 
 	public Orders() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Orders(Transactions transaction, int pId, int quantity, float price) {
+
+	public Orders(Long pId, int quantity, float price,Transactions tr) {
 		super();
-		this.transaction = transaction;
+		this.transaction=tr;
 		this.pId = pId;
 		this.quantity = quantity;
 		this.price = price;
 	}
-	
-
-	
 
 }
