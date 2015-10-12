@@ -5,10 +5,12 @@ import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.emc.shoppingcart.dao.*;
 import com.mongodb.MongoClient;
 
+@EnableWebMvc
 @EnableMongoRepositories(basePackageClasses=ProductDao.class)  //Used ProductDao as a placeholder, need to recheck.
 public class MongoConfig {
 	public @Bean

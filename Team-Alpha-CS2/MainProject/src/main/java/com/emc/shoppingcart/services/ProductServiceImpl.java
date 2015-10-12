@@ -46,8 +46,15 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getProducts() {
-
-		return productDao.getProducts();
+		List<Product> productList=new ArrayList<Product>();
+		Product p1=new Product(1, "p", "elctronics", (float) 100, "lg", 5,"d1");
+		Product p2=new Product(1, "p", "elctronics", (float) 100, "samsung", 4,"d1");
+		Product p3=new Product(1, "p", "elctronics", (float) 100, "onida", 2,"d1");
+		//return productDao.getProducts();
+		productList.add(p3);
+		productList.add(p2);
+		productList.add(p1);
+		return productList;
 	}
 
 	@Override
@@ -79,24 +86,5 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
-	/*@Override
-	public String transactionExProduct(Product product)  {
-		
-		DefaultTransactionDefinition transactionDefinition= new DefaultTransactionDefinition();		
-		TransactionStatus transactionStatus=transactionManager.getTransaction(transactionDefinition);
-		
-	 try {
-			productDao.addProduct(product);
-			productDao.addproductToFile(product);
-			transactionManager.commit(transactionStatus);
-			return "succesfully added";
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			transactionManager.rollback(transactionStatus);
-			e.printStackTrace();
-			return "failed to add product";
-		}
-		
-	}*/
 
 }

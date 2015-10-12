@@ -132,7 +132,7 @@ public class ShoppingController {
 	public String loginModelAttribute(@ModelAttribute("loginForm") /* @Valid */ UserLogin user, Model model,
 			HttpSession session, BindingResult bindingResult) {
 		/* bindingResult.hasErrors() */
-		System.out.println("id" + user.getEmailId());
+		//System.out.println("id" + user.getEmailId());
 		if (user.getEmailId().equals("") || user.getPasswrd().equals("")) {
 			model.addAttribute("login", "Please enter both Email Id and Password");
 			return "userLoginForm";

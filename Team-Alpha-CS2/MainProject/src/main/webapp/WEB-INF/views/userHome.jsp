@@ -21,10 +21,7 @@
 		</form>
 
 
-		<!-- 
-		
-<input type="text">
- -->
+
 		<br> <br>
 		<table border="1">
 			<thead>
@@ -33,7 +30,8 @@
 					<th>Product Name</th>
 					<th>Product Price</th>
 					<th>Product Category</th>
-					<th>Product Image Name</th>
+					<th>Product brand</th>
+					<th>Product quantity</th>
 				</tr>
 			</thead>
 
@@ -43,7 +41,8 @@
 						<td>${product.pName}</td>
 						<td>${product.price}</td>
 						<td>${product.category}</td>
-						<td>${product.imageName}</td>
+						<td>${product.brand}</td>
+						<td>${product.quantity}</td>
 						<td><input type="button" id="" value="Add to cart"  />
 
 						</td>
