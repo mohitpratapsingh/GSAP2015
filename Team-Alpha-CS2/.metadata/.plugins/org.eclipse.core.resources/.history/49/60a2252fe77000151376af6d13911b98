@@ -127,15 +127,6 @@ public class ProductController {
 		//return "userHome";
 	}
 	
-	@RequestMapping(value="/productSearch", method=RequestMethod.GET, headers="Accept=application/json")
-	public List<Product> getProductsByCategory(){
-		return productService.getProducts();
-		
-		//return "userHome";
-	}
-	
-	
-	
 	@RequestMapping(value="/BuyProduct", method=RequestMethod.GET)
 	public String productBuy( Model model, HttpSession session){
 		
