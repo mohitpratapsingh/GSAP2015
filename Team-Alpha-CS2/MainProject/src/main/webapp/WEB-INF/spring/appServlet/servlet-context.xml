@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.emc.shoppingcart.com"></context:component-scan>
+	<context:component-scan base-package="com.emc.shoppingcart"></context:component-scan>
 	
 	
 	

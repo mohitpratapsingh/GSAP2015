@@ -21,8 +21,8 @@ import com.emc.shoppingcart.services.ProductService;
 //@ContextConfiguration(locations={"classpath:servlet-context.xml","classpath:root-context.xml"})
 public class ProductTest {
 
-/*	@Autowired
-	ProductService productService;*/
+	@Autowired
+	ProductService productService;
 	
 	@Test
 	public void getproducts() {
