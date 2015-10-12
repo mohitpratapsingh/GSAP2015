@@ -11,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.emc.shoppingcart.model.Product;
 import com.emc.shoppingcart.model.User;
@@ -22,7 +24,7 @@ import com.emc.shoppingcart.services.TransactionService;
 import com.emc.shoppingcart.services.UserService;
 import com.emc.shoppingcart.utils.ConstantsClass;
 
-@Controller
+@RestController
 public class ProductController {
 
 	@Autowired
@@ -114,11 +116,15 @@ public class ProductController {
 			return "superAdminHome";
 	}
 	
-	@RequestMapping(value="/productSearch", method=RequestMethod.GET)
-	public String productSearchClick(@RequestParam("category") String category , Model model, HttpSession session){
+	
+	@RequestMapping(value="/productSearch/{category}", method=RequestMethod.GET, headers="Accept=application/json")
+	public String productSearchClick(@PathVariable String category , Model model, HttpSession session){
 		System.out.println(category);
+		String result = "Hello" + category;
 		
-		return "userHome";
+		return result;
+		
+		//return "userHome";
 	}
 	
 	@RequestMapping(value="/BuyProduct", method=RequestMethod.GET)
