@@ -3,6 +3,8 @@ package com.emc.shoppingcart.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,8 +25,12 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(String userName) {
 
 		try {
-			return (User) this.sessionFactory.openSession().get(User.class, userName);
-
+			//return (User) this.sessionFactory.openSession().get(User.class, userName);
+			Session session=sessionFactory.openSession();
+			Query query=session.createQuery("from User where  emailId= :emailId");
+			query.setParameter("emailId",userName);
+			return (User) query.uniqueResult();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

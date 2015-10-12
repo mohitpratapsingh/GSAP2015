@@ -60,8 +60,8 @@ public class TransactionServiceImpl implements TransactionService {
 	public boolean buyProducts(User user, Long totalAmount, List<Product> productsList) {
 		
 		
-		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		 String transactionDate=sdf.format(new Date());
+/*		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		 String transactionDate=sdf.format(new Date());*/
 		Transactions tobj = new Transactions(5, new Date(), "placed", totalAmount);
 		for (Product product : productsList) {
 			Orders orderobj = new Orders(product.getId(), 2, 5000, tobj);
