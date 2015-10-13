@@ -2,7 +2,7 @@ package com.emc.shoppingcart.model;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.NotEmpty;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -13,27 +13,27 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private long id;
-	@NotEmpty
+	private int id;
+
 	@Field(value = "name")
 	private String pName;
-	@NotEmpty
+	
 	@Field(value = "category")
 	private String category;
-	@NotEmpty
+	
 	@Field(value = "price")
 	private Float price;
-	@NotEmpty
+	
 	@Field(value = "brand")
 	private String brand;
-	@NotEmpty
+
 	@Field(value = "quantity")
 	private int quantity;
-	@NotEmpty
+	
 	@Field(value = "description")
 	private String description;
 	
-	public Product(long id, String pName, String category, Float price, String brand, int quantity,
+	public Product(int id, String pName, String category, Float price, String brand, int quantity,
 			String description) {
 		super();
 		this.id = id;
@@ -53,7 +53,7 @@ public class Product implements Serializable {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

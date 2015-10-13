@@ -1,0 +1,25 @@
+package com.emc.shoppingcart.dao;
+
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
+
+import com.emc.shoppingcart.model.Product;
+
+public interface ProductDao extends MongoRepository<Product, String> {
+	public List<Product> findByCategory(String category);
+	public List<Product> findAll();
+	public Product findByPNameIgnoreCase(String name);
+	public Product findById(int id);
+	public List<Product> findByBrand(String brand);
+	public List<Product> findByPriceBetween(int from, int to);
+	public Product save(Product prod);	
+	//public void delete(int id);
+	/*public String addProduct(Product product);
+	public List<Product> getProducts();
+	public String deleteProduct(long productId);
+	public String updateProduct(Product product);
+	public Product getProductById(int productId);*/
+	public void addproductToFile(Product product) throws Exception;
+}

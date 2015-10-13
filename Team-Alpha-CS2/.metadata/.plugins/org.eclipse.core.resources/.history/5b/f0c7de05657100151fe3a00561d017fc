@@ -1,0 +1,102 @@
+package com.emc.shoppingcart;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.repository.config.MongoRepositoryConfigurationExtension;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.emc.shoppingcart.config.XMLConfig;
+import com.emc.shoppingcart.dao.ProductDao;
+import com.emc.shoppingcart.model.Product;
+import com.emc.shoppingcart.services.ProductService;
+
+
+@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml","file:src/main/webapp/WEB-INF/spring/root-context.xml"})
+//@ContextConfiguration(locations={"classpath:servlet-context.xml","classpath:root-context.xml"})
+/*@ContextConfiguration(classes={XMLConfig.class})*/
+public class ProductTest {
+	@Autowired
+	private ProductDao prod;
+	ApplicationContext mongo = new FileSystemXmlApplicationContext();
+	@Autowired
+	private MongoOperations mongoOps;
+	
+	
+	@Test
+	public void testFindByCategory() {
+
+		//	List<Product> prodList = prod.findByCategory("watches");
+		//assertThat(prodList.size(), equalTo(2));
+		//	System.out.println(prodList.size());
+	}
+	/*@Test
+	public void testFindAll() {
+
+		List<Product> prodList = prod.findAll();
+		//assertThat(prodList.size(), equalTo(16));
+		System.out.println(prodList.size());
+	}
+	
+	@Test
+	public void testFindByName(){
+		List<Product> prodList = prod.findByPName("grey");
+		
+		System.out.println(prodList.size());
+		//assertThat(product.getCategory(), equalTo("jeans"));
+	
+	}
+	
+	@Test
+	public void testFindById(){
+		Product product = prod.findById(2);
+		System.out.println(product);
+		//assertThat(product.getCategory(), equalTo("shirt"));
+	
+	}
+
+	@Test
+	public void testFindByBrand() {
+
+		List<Product> prodList = prod.findByBrand("only");
+		System.out.println(prodList.size());
+		//assertThat(prodList.size(), equalTo(1));
+	}
+	
+	@Test
+	public void testFindByPrice() {
+
+		List<Product> prodList = prod.findByPriceBetween(1000, 2000);
+		System.out.println(prodList.size());
+		//assertThat(prodList.size(), equalTo(4));
+	}
+	
+	@Test
+	public void testSave(){
+	Product product = new Product();
+		product.setId(16);
+		product.setpName("Roadster Shoes");
+		product.setDescription("Fashionable shoes at cheap price");
+		product.setBrand("roadster");
+		product.setCategory("shoes");
+		product.setQuantity(10);
+		product.setPrice(1999.25f);
+		
+		prod.save(product);
+		
+		
+	}
+*/	
+}

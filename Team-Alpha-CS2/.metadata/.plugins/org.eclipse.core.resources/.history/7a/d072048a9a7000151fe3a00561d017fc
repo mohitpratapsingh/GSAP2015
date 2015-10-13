@@ -1,0 +1,5 @@
+package com.emc.shoppingcart.config;
+
+public class XMLConfig {
+
+}

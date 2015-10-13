@@ -90,6 +90,7 @@
           <tags>persp.newWizSC:org.eclipse.m2e.core.wizards.Maven2ProjectWizard</tags>
           <tags>persp.actionSet:org.eclipse.wst.server.ui.internal.webbrowser.actionSet</tags>
           <tags>persp.actionSet:org.eclipse.debug.ui.breakpointActionSet</tags>
+          <tags>persp.actionSet:org.jboss.tools.common.model.ui.actionSet</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_cvtKkFIKEeWDm5AkDkklGQ" selectedElement="_cvtKkVIKEeWDm5AkDkklGQ" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_cvtKkVIKEeWDm5AkDkklGQ" containerData="2500" selectedElement="_cvtKklIKEeWDm5AkDkklGQ">
               <children xsi:type="basic:PartStack" xmi:id="_cvtKklIKEeWDm5AkDkklGQ" elementId="left" containerData="8000" selectedElement="_cvtKk1IKEeWDm5AkDkklGQ">
@@ -273,7 +274,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cV0D4FIKEeWDm5AkDkklGQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_cWKCIFIKEeWDm5AkDkklGQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_btYK91IKEeWDm5AkDkklGQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_tHtiMG5CEeW7UvC3p7R8Gg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_btYK91IKEeWDm5AkDkklGQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cV0q8FIKEeWDm5AkDkklGQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -297,7 +298,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cV1SAFIKEeWDm5AkDkklGQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_cWMeYFIKEeWDm5AkDkklGQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_btWVvlIKEeWDm5AkDkklGQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_tHxMkG5CEeW7UvC3p7R8Gg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_btWVvlIKEeWDm5AkDkklGQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cV1SAVIKEeWDm5AkDkklGQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -900,6 +901,12 @@
   <bindingTables xmi:id="_cvbdwVIKEeWDm5AkDkklGQ" bindingContext="_cvbdwFIKEeWDm5AkDkklGQ"/>
   <bindingTables xmi:id="_cvbdw1IKEeWDm5AkDkklGQ" bindingContext="_cvbdwlIKEeWDm5AkDkklGQ"/>
   <bindingTables xmi:id="_cvbdxVIKEeWDm5AkDkklGQ" bindingContext="_cvbdxFIKEeWDm5AkDkklGQ"/>
+  <bindingTables xmi:id="_s5HFgG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.hql" bindingContext="_s4k6AG5CEeW7UvC3p7R8Gg">
+    <bindings xmi:id="_s5IToG5CEeW7UvC3p7R8Gg" keySequence="CTRL+CR" command="_s4h2sW5CEeW7UvC3p7R8Gg"/>
+  </bindingTables>
+  <bindingTables xmi:id="_tHHsUW5CEeW7UvC3p7R8Gg" bindingContext="_tHHsUG5CEeW7UvC3p7R8Gg"/>
+  <bindingTables xmi:id="_tHHsU25CEeW7UvC3p7R8Gg" bindingContext="_tHHsUm5CEeW7UvC3p7R8Gg"/>
+  <bindingTables xmi:id="_tHITYW5CEeW7UvC3p7R8Gg" bindingContext="_tHITYG5CEeW7UvC3p7R8Gg"/>
   <rootContext xmi:id="_bsA481IKEeWDm5AkDkklGQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_bsA49FIKEeWDm5AkDkklGQ" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_bsA49VIKEeWDm5AkDkklGQ" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -942,6 +949,7 @@
         <children xmi:id="_bth79lIKEeWDm5AkDkklGQ" elementId="org.dadacoalition.yedit.yeditScope" name="YEdit editor context"/>
         <children xmi:id="_bth7-VIKEeWDm5AkDkklGQ" elementId="org.eclipse.jdt.ui.propertiesEditorScope" name="Editing Properties Files" description="Editing Properties Files Context"/>
         <children xmi:id="_bth7-1IKEeWDm5AkDkklGQ" elementId="org.eclipse.jst.jsf.facesconfig.editorContext" name="In Faces Config Editor" description="Key binding context when using the Faces Config Editor"/>
+        <children xmi:id="_s4k6AG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.hql" name="Editing HQL"/>
       </children>
       <children xmi:id="_bthU1FIKEeWDm5AkDkklGQ" elementId="org.eclipse.compare.compareEditorScope" name="Comparing in an Editor" description="Comparing in an Editor"/>
       <children xmi:id="_bthU1lIKEeWDm5AkDkklGQ" elementId="org.eclipse.debug.ui.memoryview" name="In Memory View" description="In memory view"/>
@@ -1030,6 +1038,9 @@
   <rootContext xmi:id="_cvbdwFIKEeWDm5AkDkklGQ" elementId="org.springsource.ide.eclipse.quicksearch.actionSet" name="Auto::org.springsource.ide.eclipse.quicksearch.actionSet"/>
   <rootContext xmi:id="_cvbdwlIKEeWDm5AkDkklGQ" elementId="org.springsource.ide.eclipse.commons.launch.actionSet" name="Auto::org.springsource.ide.eclipse.commons.launch.actionSet"/>
   <rootContext xmi:id="_cvbdxFIKEeWDm5AkDkklGQ" elementId="com.springsource.sts.ide.ui.actionSet.workbench" name="Auto::com.springsource.sts.ide.ui.actionSet.workbench"/>
+  <rootContext xmi:id="_tHHsUG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.actionSet" name="Auto::org.hibernate.eclipse.console.actionSet"/>
+  <rootContext xmi:id="_tHHsUm5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.launch.actionset" name="Auto::org.hibernate.eclipse.launch.actionset"/>
+  <rootContext xmi:id="_tHITYG5CEeW7UvC3p7R8Gg" elementId="org.jboss.tools.common.model.ui.actionSet" name="Auto::org.jboss.tools.common.model.ui.actionSet"/>
   <descriptors xmi:id="_by_DoFIKEeWDm5AkDkklGQ" elementId="org.eclipse.e4.ui.compatibility.editor" allowMultiple="true" category="org.eclipse.e4.primaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor">
     <tags>Editor</tags>
   </descriptors>
@@ -1432,6 +1443,22 @@
   <descriptors xmi:id="_b05vMFIKEeWDm5AkDkklGQ" elementId="org.springsource.ide.eclipse.commons.browser.View" label="Browser View" iconURI="platform:/plugin/org.springsource.ide.eclipse.commons.browser/icons/spring_browser.png" tooltip="" allowMultiple="true" category="Spring" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:Spring</tags>
+  </descriptors>
+  <descriptors xmi:id="_s7JF0G5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.views.KnownConfigurationsView" label="Hibernate Configurations" iconURI="platform:/plugin/org.hibernate.eclipse.console/icons/hibernate_small_icon.gif" tooltip="" category="Hibernate" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:Hibernate</tags>
+  </descriptors>
+  <descriptors xmi:id="_s7LiEG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.views.QueryPageTabView" label="Hibernate Query Result" iconURI="platform:/plugin/org.hibernate.eclipse.console/icons/hibernate_small_icon.gif" tooltip="" category="Hibernate" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:Hibernate</tags>
+  </descriptors>
+  <descriptors xmi:id="_s7MJIG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.views.DynamicSQLPreviewView" label="Hibernate Dynamic SQL Preview" iconURI="platform:/plugin/org.hibernate.eclipse.console/icons/hibernate_small_icon.gif" tooltip="" category="Hibernate" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:Hibernate</tags>
+  </descriptors>
+  <descriptors xmi:id="_s7NXQG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.views.QueryParametersView" label="Query Parameters" iconURI="platform:/plugin/org.hibernate.eclipse.console/icons/images/parameter.gif" tooltip="" category="Hibernate" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:Hibernate</tags>
   </descriptors>
   <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
     <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
@@ -2703,6 +2730,15 @@
   <commands xmi:id="_cQzoEVIKEeWDm5AkDkklGQ" elementId="AUTOGEN:::org.springframework.ide.eclipse.aop.mylyn.ui.filter/org.springframework.ide.eclipse.beans.mylyn.ui.actions.filterSpringExplorerAction" commandName="Focus on Active Task" description="Focus on Active Task (Alt+click to reveal filtered elements)" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
   <commands xmi:id="_cQ0PIFIKEeWDm5AkDkklGQ" elementId="AUTOGEN:::org.eclipse.mylyn.ui.projectexplorer.filter/org.springframework.ide.eclipse.beans.mylyn.ui.actions.filterSpringExplorerAction" commandName="Focus on Active Task" description="Focus on Active Task (Alt+click to reveal filtered elements)" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
   <commands xmi:id="_cQ0PIVIKEeWDm5AkDkklGQ" elementId="AUTOGEN:::org.springframework.ide.eclipse.ui.navigator.springExplorer.sorting/org.springframework.ide.eclipse.ui.navigator.springExplorer.sortingAction" commandName="Sort" description="Sort" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_s4h2sG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.jdt.ui.run_jpaaction" commandName="Generate &amp;Hibernate/JPA annotations..." category="_s4hPoW5CEeW7UvC3p7R8Gg"/>
+  <commands xmi:id="_s4h2sW5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.console.actions.ExecuteHQLActionCommand" commandName="Run Query command" category="_bs-iQFIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGjEkG5CEeW7UvC3p7R8Gg" elementId="AUTOGEN:::org.hibernate.eclipse.launch.actionset/org.hibernate.eclipse.launch.LaunchMenuDelegateMenu" commandName="Hibernate Code Generation..." category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGjroG5CEeW7UvC3p7R8Gg" elementId="AUTOGEN:::org.hibernate.eclipse.launch.actionset/org.hibernate.eclipse.launch.LaunchMenuDelegateToolBar" commandName="Hibernate Code Generation..." description="Generate code via Hibernate Tools" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGkSsG5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.launch.OpenHibernateToolsConfigurations" commandName="Hibernate Tools ..." category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGk5wG5CEeW7UvC3p7R8Gg" elementId="AUTOGEN:::org.jboss.tools.common.model.ui.actionSet/org.jboss.tools.common.model.ui.action.global.ReportProblemActionDelegate" commandName="Report Problem" description="Report Problem" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGmu8G5CEeW7UvC3p7R8Gg" elementId="AUTOGEN:::org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor.ruler.actions/org.jboss.tools.common.model.ui.actions.SelectRulerAction" commandName="SelectRulerAction.label" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGmu8W5CEeW7UvC3p7R8Gg" elementId="AUTOGEN:::org.jboss.tools.jst.jsp.jspeditor.JSPTextEditor.ruler.actions/org.jboss.tools.common.model.ui.actions.SelectRulerAction" commandName="SelectRulerAction.label" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
+  <commands xmi:id="_tGmu8m5CEeW7UvC3p7R8Gg" elementId="AUTOGEN:::org.jboss.tools.common.model.ui.editor.EditorPartWrapper.ruler.actions/org.jboss.tools.common.model.ui.actions.SelectRulerAction" commandName="SelectRulerAction.label" category="_bs_JXlIKEeWDm5AkDkklGQ"/>
   <addons xmi:id="_bsA491IKEeWDm5AkDkklGQ" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_bsA4-FIKEeWDm5AkDkklGQ" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_bsA4-VIKEeWDm5AkDkklGQ" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2767,4 +2803,5 @@
   <categories xmi:id="_bs_wcFIKEeWDm5AkDkklGQ" elementId="org.eclipse.jdt.ui.category.source" name="Source" description="Java Source Actions"/>
   <categories xmi:id="_bs_wcVIKEeWDm5AkDkklGQ" elementId="org.eclipse.pde.runtime.spy.commands.category" name="Spy"/>
   <categories xmi:id="_bs_wclIKEeWDm5AkDkklGQ" elementId="org.springsource.ide.eclipse.quicksearch.commands.category" name="Quick Search Category"/>
+  <categories xmi:id="_s4hPoW5CEeW7UvC3p7R8Gg" elementId="org.hibernate.eclipse.jdt.ui.run_jpaaction.category1" name="Generate Hibernate/JPA annotations"/>
 </application:Application>

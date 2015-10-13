@@ -1,5 +1,13 @@
 /*package com.emc.shoppingcart.dao;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.emc.shoppingcart.model.Product;
@@ -118,7 +126,7 @@ public class ProductDaoImpl implements ProductDao {
 			System.out.println("wrote to file");
 			writer.close();
 
-//			throw new Exception();
+			//throw new Exception();
 
 		} catch (FileNotFoundException e) {
 

@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
 	public String addProduct(Product product) {
 
 		try {
-			productDao.addProduct(product);
+			productDao.save(product);
 			return "SUCCESSFULL_UPDATE";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,22 +38,51 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String removeProduct(long productId) {
+	public String removeProduct(int productId) {
 
-		return productDao.deleteProduct(productId);
+		return productDao.deleteById(productId);
 
 	}
 
 	@Override
 	public List<Product> getProducts() {
 
-		return productDao.getProducts();
+		return productDao.findAll();
 	}
-
+	
 	@Override
-	public String updateProduct(Product product) {
+	public List<Product> getProductsByCategory(String category) {
 
-		return productDao.updateProduct(product);
+		return productDao.findByCategory(category);
+	}
+	
+	@Override
+	public List<Product> getProductsByPName(String name) {
+
+		return productDao.findByPName(name);
+	}
+	
+	@Override
+	public Product getProductsByPId(int id) {
+
+		return productDao.findById(id);
+	}
+	
+	@Override
+	public List<Product> getProductsByBrandName(String brand) {
+
+		return productDao.findByBrand(brand);
+	}
+	
+	@Override
+	public List<Product> getProductsByPriceBetween(int from, int to) {
+
+		return productDao.findByPriceBetween(from,to);
+	}
+	@Override
+	public Product updateProduct(Product product) {
+
+		return productDao.save(product);
 	}
 
 	@Override
@@ -63,7 +92,7 @@ public class ProductServiceImpl implements ProductService {
 		String failedToDelete = "Could not delete products :";
 		for (Integer productId : productidList) {
 
-			String response = productDao.deleteProduct(productId);
+			String response = productDao.deleteById(productId);
 
 			if (response.equals("COULD_NOT_DELETE_PRODUCT")) {
 				notDeleted.add(productId);
@@ -79,15 +108,15 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
-	@Override
+	/*@Override
 	public String transactionExProduct(Product product)  {
 		
 		DefaultTransactionDefinition transactionDefinition= new DefaultTransactionDefinition();		
 		TransactionStatus transactionStatus=transactionManager.getTransaction(transactionDefinition);
 		
 	 try {
-			productDao.addProduct(product);
-			productDao.addproductToFile(product);
+			productDao.save(product);
+			//productDao.addproductToFile(product);
 			transactionManager.commit(transactionStatus);
 			return "succesfully added";
 		} catch (Exception e) {
@@ -97,6 +126,6 @@ public class ProductServiceImpl implements ProductService {
 			return "failed to add product";
 		}
 		
-	}
+	}*/
 
 }

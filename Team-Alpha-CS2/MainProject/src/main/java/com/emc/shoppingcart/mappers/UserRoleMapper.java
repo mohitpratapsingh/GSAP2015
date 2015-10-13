@@ -24,7 +24,7 @@ public class UserRoleMapper implements RowMapper<User> {
 		user.setPhoneNumber(rs.getLong("phone_number"));
 		user.setGender(rs.getString("gender"));
 		//user.setRole(role);
-		user.setR_id(rs.getInt("r_id"));
+		//user.setRoles(rs.getInt("r_id"));
 		
 		return user;
 	}

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.emc.shoppingcart.model.User;
@@ -13,9 +14,14 @@ import com.emc.shoppingcart.model.User;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-	
+
 	@Autowired
-	SessionFactory sessionFactory;
+	 HibernateTemplate hibernateTemplate;
+	  
+	
+	
+	/*@Autowired
+	SessionFactory sessionFactory;*/
 	/*@Autowired
 	JdbcTemplate jdbcTemplate;
 	
@@ -53,8 +59,9 @@ public class UserDaoImpl implements UserDao {
 			/*return (User) this.sessionFactory.getCurrentSession()
 					.createQuery("from user where email_id=? ") 
 					.setParameter(0, userName);*/
-				return (User) this.sessionFactory.getCurrentSession().get(userName, User.class)	;
-
+			User user=hibernateTemplate.get(User.class, userName);
+			return user;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -73,7 +80,7 @@ public class UserDaoImpl implements UserDao {
 			*/
 			
 			/*return "USER_ADDED_SUCCESSFULLY";*/
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			hibernateTemplate.save(user);
 			return "USER_ADDED_SUCCESSFULLY";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,7 +96,7 @@ public class UserDaoImpl implements UserDao {
 
 			//String sql = "delete from user where email_id=?";
 			//jdbcTemplate.update(userDeleteQuery, userName);
-			sessionFactory.getCurrentSession().delete(userName, User.class);
+			hibernateTemplate.delete(userName, User.class);
 
 			return "USER_DELETED_SUCCESSFULLY";
 		} catch (Exception e) {
@@ -109,7 +116,7 @@ public class UserDaoImpl implements UserDao {
 
 					user.getAddressLine1(), user.getAddressLine2(), user.getPhoneNumber(), user.getGender(),
 					user.getuId());*/
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			hibernateTemplate.update(user);
 			return "USER_UPDATED_SUCCESSFULLY";
 
 		} catch (Exception e) {
@@ -125,8 +132,9 @@ public class UserDaoImpl implements UserDao {
 
 			//String sql = "select * from user";
 			//List<User> userList = jdbcTemplate.query(allUserGetQuery, new BeanPropertyRowMapper<User>(User.class));
-			
-			return this.sessionFactory.getCurrentSession().createQuery("from user").list();
+			//String queryName="from user";
+			List<User> list=hibernateTemplate.loadAll(User.class);
+			return list;
 
 
 		} catch (Exception e) {
@@ -143,11 +151,10 @@ public class UserDaoImpl implements UserDao {
 			//String sql = "select * from user where r_id=?";
 			/*List<User> userListByRole;
 			userListByRole = jdbcTemplate.query(userGetByRoleQuery, new Object[] { rId }, new BeanPropertyRowMapper<User>(User.class));
-*/
-			return this.sessionFactory.getCurrentSession()
-	                .createQuery("from user where r_id = ?")
-	                .setParameter(0, rId)
-	                .list();
+*/          
+			
+			List<User> list=(List<User>) hibernateTemplate.get(User.class, rId);
+			return list;
 
 
 			
@@ -163,8 +170,8 @@ public class UserDaoImpl implements UserDao {
 
 			//String sql = "insert into user(user_lname,user_fname,email_id,passwrd,r_id) values(?,?,?,?,?)";
 			//jdbcTemplate.update(userInsertAdminQuery, user.getUserLname(), user.getUserFname(), user.getEmailId(), user.getPasswrd(), 1);
-			user.setR_id(1);
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			//user.setR_id(1);
+			hibernateTemplate.saveOrUpdate(user);
 
 			return "ADMIN_ADDED_SUCCESSFULLY";
 		} catch (Exception e) {
