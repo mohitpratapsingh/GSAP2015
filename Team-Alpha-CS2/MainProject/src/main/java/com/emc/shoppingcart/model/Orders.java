@@ -1,56 +1,46 @@
 package com.emc.shoppingcart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table( name = "orders" )
-public class Orders {
+public class Orders implements Serializable{
 	
 	@Id
 	@GeneratedValue
     @Column ( name = "order_id" )		
 	private int orderId;
 	
-	@ManyToOne()
-	@Column ( name = "transaction_id")
-	private long transactionId;
+	@ManyToOne
+	@JoinColumn ( name = "transaction_id")
+	private Transactions transaction;
 	
 	@Column (name = "p_id" )
-	private int pId;
+	private Long pId;
 	
-	@Column (name = "quantity" )
-	private int quantity;
-	
-	@Column (name = "price" )
-	private float price;
-
-	public int getOrderId() {
-		return orderId;
+	public Transactions getTransaction() {
+		return transaction;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setTransaction(Transactions transaction) {
+		this.transaction = transaction;
 	}
 
-	public long getTransactionId() {
-		return transactionId;
-	}
-
-	public void setTransactionId(long transactionId) {
-		this.transactionId = transactionId;
-	}
-
-	public int getpId() {
+	public Long getpId() {
 		return pId;
 	}
 
-	public void setpId(int pId) {
+	public void setpId(Long pId) {
 		this.pId = pId;
 	}
 
@@ -70,18 +60,25 @@ public class Orders {
 		this.price = price;
 	}
 
+	@Column (name = "quantity" )
+	private int quantity;
 	
+	@Column (name = "price" )
+	private float price;
+
 	
 
-	public Orders(long transactionId, int pId, int quantity, float price) {
+	public Orders() {
+		
+	}
+
+
+	public Orders(Long pId, int quantity, float price,Transactions tr) {
 		super();
-		this.transactionId = transactionId;
+		this.transaction=tr;
 		this.pId = pId;
 		this.quantity = quantity;
 		this.price = price;
 	}
-
-	
-	
 
 }

@@ -1,60 +1,76 @@
 package com.emc.shoppingcart.dao;
 
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
-import com.emc.shoppingcart.model.Transactions;
-
-/*import java.awt.List;
-
-import javax.transaction.Transaction;
-
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-*/
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-@Repository("transactionDao")
-public class TransactionsDaoImpl extends TransactionHibernateDaoSupport implements TransactionDao {
+import com.emc.shoppingcart.model.Orders;
+import com.emc.shoppingcart.model.Transactions;
+
+
+@Repository
+public class TransactionsDaoImpl  implements TransactionDao {
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	
+
 
 	@Override
-	public void save(Transactions transaction) {
-		// TODO Auto-generated method stub
+	public Transactions retrieveById(Long id) {
 		
-		getHibernateTemplate().save(transaction);
+		Session session=sessionFactory.openSession();
+		Transactions transaction=(Transactions) session.get(Transactions.class,id);
+		
+		return transaction;
+	}
 
+
+	@Override
+	public Long save(Transactions transaction)  throws HibernateException{
+
+		Session session = sessionFactory.openSession();
+		return (Long) session.save(transaction);	
+	}
+
+
+
+	@Override
+	public boolean update(Transactions transaction){
+		try {
+			Session session=sessionFactory.openSession();
+			session.update(transaction);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 
-	@Override
-	public void update(Transactions transaction) {
-		// TODO Auto-generated method stub
-		getHibernateTemplate().update(transaction);
-		
-	}
 
 	@Override
-	public void delete(Transactions transaction) {
-		// TODO Auto-generated method stub
-		getHibernateTemplate().delete(transaction);
+	public boolean delete(Transactions transaction) {
+		try {
+			Session session=sessionFactory.openSession();
+			session.delete(transaction);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
 		
+	}
+	
+	public boolean inserOrder(Orders order){
+		Session session=sessionFactory.openSession();
+		session.save(order);
+		return true;
 	}
 
-	@Override
-	public Transactions retrieveById(int id) {
-		// TODO Auto-generated method stub
 		
-		Transactions t=getHibernateTemplate().get(Transactions.class, id);
-		
-		return t;
-	}
-	
-	
-	
-	
-	
-	
 }
 		
 		

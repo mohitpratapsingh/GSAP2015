@@ -26,6 +26,7 @@ public class User implements Serializable {
 	@Column(name = "gender", nullable = true)
 	private String gender;
 
+
 	@Size(min = 2, max = 30)
 	@Column(name = "user_fname", nullable = true, length = 30)
 	private String userFname;
@@ -37,6 +38,7 @@ public class User implements Serializable {
 	@NotEmpty
 	@Email
 	@Column(name = "email_id", nullable = false, length = 80)
+
 	private String emailId;
 
 	@Size(min = 8, max = 12)
@@ -53,12 +55,13 @@ public class User implements Serializable {
 	// @Size(min=10,max=10)
 	@Column(name = "phone_number", nullable = true)
 	private Long phoneNumber;
-	// private Roles role;
+
 
 	@ManyToOne
 	@JoinColumn( name="r_id")
-	private Roles roles;
+	private Roles role;
 	
+
 
 	public User(String gender, String userFname, String userLname, String emailId, String passwrd, String addressLine1,
 			String addressLine2, Long phoneNumber) {
@@ -74,18 +77,16 @@ public class User implements Serializable {
 
 	}
 
-	
 
-	public Roles getRoles() {
-		return roles;
+	public Roles getRole() {
+		return role;
 	}
 
 
 
-	public void setRoles(Roles roles) {
-		this.roles = roles;
+	public void setRole(Roles role) {
+		this.role = role;
 	}
-
 
 
 	public User() {
@@ -156,11 +157,6 @@ public class User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	/*
-	 * public Roles getRole() { return role; }
-	 * 
-	 * public void setRole(Roles role) { this.role = role; }
-	 */
 
 	public String getGender() {
 		return gender;

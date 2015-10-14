@@ -5,6 +5,7 @@ import java.util.List;
 import com.emc.shoppingcart.model.Product;
 
 public interface ProductService {
+
 	public String addProduct(Product product);
 	public String removeProduct(int productId);
 	public Product updateProduct(Product product);
@@ -15,5 +16,6 @@ public interface ProductService {
 	public List<Product> getProductsByBrandName(String brand);
 	public List<Product> getProductsByPriceBetween(int from, int to);
 	public String removeMultipleProducts(List<Integer> productidList);
+
 
 }

@@ -17,11 +17,11 @@ import com.emc.shoppingcart.model.Product;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-	@Autowired
-	ProductDao productDao;
+	//@Autowired
+	private ProductDao productDao;
 
-	@Autowired
-	private PlatformTransactionManager transactionManager;	
+//	@Autowired
+//	private PlatformTransactionManager transactionManager;	
 
 	// @Transactional
 	public String addProduct(Product product) {
@@ -47,7 +47,9 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getProducts() {
 
+
 		return productDao.findAll();
+
 	}
 	
 	@Override
@@ -108,6 +110,7 @@ public class ProductServiceImpl implements ProductService {
 
 	}
 
+
 	/*@Override
 	public String transactionExProduct(Product product)  {
 		
@@ -127,5 +130,6 @@ public class ProductServiceImpl implements ProductService {
 		}
 		
 	}*/
+
 
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TransactionTest (1)" project="MainProject" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.emc.shoppingcart.TransactionTest" time="0.155">
+    <testcase name="testEntitySave" classname="com.emc.shoppingcart.TransactionTest" time="0.155">
+      <error>org.hibernate.InstantiationException: No default constructor for entity: com.emc.shoppingcart.model.Transactions&#13;
+	at org.hibernate.tuple.PojoInstantiator.instantiate(PojoInstantiator.java:120)&#13;
+	at org.hibernate.tuple.PojoInstantiator.instantiate(PojoInstantiator.java:136)&#13;
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.instantiate(AbstractEntityTuplizer.java:730)&#13;
+	at org.hibernate.persister.entity.AbstractEntityPersister.instantiate(AbstractEntityPersister.java:4552)&#13;
+	at org.hibernate.internal.SessionImpl.instantiate(SessionImpl.java:1388)&#13;
+	at org.hibernate.internal.SessionImpl.instantiate(SessionImpl.java:1377)&#13;
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1595)&#13;
+	at org.hibernate.loader.Loader.getRow(Loader.java:1504)&#13;
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:712)&#13;
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:942)&#13;
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910)&#13;
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:341)&#13;
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:311)&#13;
+	at org.hibernate.loader.Loader.loadEntity(Loader.java:2117)&#13;
+	at org.hibernate.loader.entity.AbstractEntityLoader.load(AbstractEntityLoader.java:82)&#13;
+	at org.hibernate.loader.entity.AbstractEntityLoader.load(AbstractEntityLoader.java:72)&#13;
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3927)&#13;
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:460)&#13;
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:429)&#13;
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:206)&#13;
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:262)&#13;
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:150)&#13;
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1092)&#13;
+	at org.hibernate.internal.SessionImpl.access$2000(SessionImpl.java:175)&#13;
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2476)&#13;
+	at org.hibernate.internal.SessionImpl.get(SessionImpl.java:988)&#13;
+	at com.emc.shoppingcart.dao.TransactionsDaoImpl.retrieveById(TransactionsDaoImpl.java:54)&#13;
+	at com.emc.shoppingcart.TransactionTest.testEntitySave(TransactionTest.java:36)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:85)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:86)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:241)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:87)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

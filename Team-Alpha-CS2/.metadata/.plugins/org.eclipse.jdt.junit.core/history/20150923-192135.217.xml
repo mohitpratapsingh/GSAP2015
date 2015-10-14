@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TransactionTest (1)" project="MainProject" tests="1" started="0" failures="0" errors="1" ignored="0">
+  <testsuite name="com.emc.shoppingcart.TransactionTest" incomplete="true">
+    <error>java.lang.NoClassDefFoundError: org/junit/runners/model/MultipleFailureException&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.withAfterClasses(SpringJUnit4ClassRunner.java:205)&#13;
+	at org.junit.runners.ParentRunner.classBlock(ParentRunner.java:145)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:235)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+Caused by: java.lang.ClassNotFoundException: org.junit.runners.model.MultipleFailureException&#13;
+	at java.net.URLClassLoader.findClass(Unknown Source)&#13;
+	at java.lang.ClassLoader.loadClass(Unknown Source)&#13;
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)&#13;
+	at java.lang.ClassLoader.loadClass(Unknown Source)&#13;
+	... 10 more&#13;
+&#13;
+</error>
+    <testcase name="testEntitySave" classname="com.emc.shoppingcart.TransactionTest" incomplete="true"/>
+  </testsuite>
+</testrun>
