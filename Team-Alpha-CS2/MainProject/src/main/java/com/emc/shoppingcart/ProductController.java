@@ -1,11 +1,14 @@
 package com.emc.shoppingcart;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestAttributes;
 
 import com.emc.shoppingcart.model.Product;
 import com.emc.shoppingcart.model.User;
@@ -117,22 +121,31 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping(value="/productSearch/{category}", method=RequestMethod.GET, headers="Accept=application/json")
-	public String productSearchClick(@PathVariable String category , Model model, HttpSession session){
-		System.out.println(category);
-		String result = "Hello" + category;
+	@RequestMapping(value="/productCategorySearch", method=RequestMethod.GET, headers="Accept=application/json")
+	public String productSearchClick(@RequestParam("category") String category , Model model, HttpSession session){
 		
-		return result;
+		List<Product> productsList = productService.getProducts();
 		
-		//return "userHome";
+		
+		
+		//System.out.println(category);
+		
+		
+		return "userHome";
 	}
 	
 	@RequestMapping(value="/productSearch", method=RequestMethod.GET, headers="Accept=application/json")
-	public List<Product> getProductsByCategory(){
-		return productService.getProducts();
+	public List<Product> getProductsByCategory(HttpSession session){
+		
+		
+		List<Product> productsList = productService.getProducts();
+		
+		
+		
+		return productsList;
 		
 		//return "userHome";
-	}
+	} 	
 	
 	
 	
